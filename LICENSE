@@ -1,0 +1,47 @@
+Ruhsal Gelişim Atlası
+Telif hakkı (c) 2026 Miraç Barış Usta
+
+Aşağıda "Üçüncü taraf içerik" başlığı altında sayılanlar dışında bu depodaki
+tüm içerik (metinler, veri dosyaları, eğitim vakaları, tablolar, görsel tasarım,
+logo ve amblem, kaynak kod) Creative Commons Atıf-GayriTicari 4.0 Uluslararası
+Lisansı (CC BY-NC 4.0) ile lisanslanmıştır.
+
+  Lisans özeti:  https://creativecommons.org/licenses/by-nc/4.0/deed.tr
+  Hukuki metin:  https://creativecommons.org/licenses/by-nc/4.0/legalcode.tr
+
+Bu lisansla:
+  - İçeriği her ortamda ve biçimde kopyalayabilir, yeniden dağıtabilir,
+    uyarlayabilir ve üzerine yeni çalışmalar yapabilirsiniz;
+  - bunun için uygun atıf vermeniz (eser adı, yazar, bu lisansa bağlantı ve
+    değişiklik yapılıp yapılmadığının belirtilmesi) gerekir;
+  - içeriği ticari amaçla kullanamazsınız.
+
+Önerilen atıf:
+  Usta MB. Ruhsal Gelişim Atlası. 2026. https://hypothermia15.github.io/gelisim/
+  CC BY-NC 4.0 ile lisanslanmıştır.
+
+Üçüncü taraf içerik
+-------------------
+Aşağıdaki öğeler bu depoya ait değildir ve kendi lisanslarına tabidir; CC BY-NC 4.0
+bunlara uygulanmaz:
+
+  - assets/img/portraits/ : Kuramcı portreleri, Wikimedia Commons. Her görselin
+    lisansı (kamu malı, PDM, CC0, CC BY 2.0, CC BY 4.0, CC BY-SA 3.0, CC BY-SA 4.0),
+    yazarı ve kaynak bağlantısı data/portreler.js dosyasında ve sitedeki
+    "Görseller ve atıflar" bölümünde verilmiştir. CC BY-SA görsellerin
+    uyarlamaları (kırpılmış, gri tonlamalı sürümler) CC BY-SA ile paylaşılır.
+  - assets/img/gray726.png, assets/img/gray727.png : Henry Vandyke Carter,
+    Gray's Anatomy of the Human Body, 20. baskı (1918), Şekil 726 ve 727;
+    kamu malı.
+  - data/cdc.js : CDC "Learn the Signs. Act Early." gelişim basamaklarının
+    Türkçe çevirisi. Özgün metin ABD federal hükümeti eseridir; CDC'nin
+    onayladığı ya da desteklediği anlamına gelmez.
+  - Yazı tipleri (Source Serif 4, Noto Sans) Google Fonts üzerinden SIL Open
+    Font License 1.1 ile yüklenir; bu depoda dağıtılmaz.
+
+Atıfta bulunulan bilimsel yayınlar, DSM-5-TR ve DC:0-5 ölçütleri ile ölçüm
+araçları ilgili yayıncıların ve yazarların mülkiyetindedir; atlasta yalnızca
+eğitim amaçlı özetlenmiş ve kaynak gösterilmiştir.
+
+Bu atlas eğitim amaçlıdır; klinik karar, tanı ya da tedavi için tek başına
+kullanılmamalıdır. İçerik "olduğu gibi" sunulur; hiçbir garanti verilmez.

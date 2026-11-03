@@ -79,3 +79,9 @@ data/portreler.js        Kuramcı portrelerinin kaynak ve lisans bilgileri
 İçerik eklemek için ilgili `data/` dosyasına aynı biçimde yeni bir kayıt eklemek yeterlidir; sayfa yeni kaydı tüm görünümlere otomatik olarak yerleştirir.
 
 Bu kaynak eğitim amaçlıdır ve klinik değerlendirmenin yerini tutmaz.
+
+## Lisans
+
+Ruhsal Gelişim Atlası, [Creative Commons Atıf-GayriTicari 4.0 Uluslararası (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.tr) ile lisanslanmıştır: atıf vererek ticari olmayan amaçlarla kopyalanabilir, paylaşılabilir ve uyarlanabilir. Kuramcı portreleri, Gray's Anatomy levhaları ve CDC basamakları kendi lisanslarına tabidir; ayrıntılar [LICENSE](LICENSE) dosyasındadır.
+
+Önerilen atıf: Usta MB. *Ruhsal Gelişim Atlası*. 2026. https://hypothermia15.github.io/gelisim/
