@@ -1,15 +1,15 @@
-/* Gravür: 19. yüzyıl anatomi atlası. Sepya mürekkep, fildişi kâğıt, levha çerçeveleri, Garamond.
+/* Gravür: 19. yüzyıl anatomi atlası. Sepya mürekkep, beyaz kâğıt, levha çerçeveleri, Garamond.
    Koyu temada aynı atlas "gece levhası" olarak: isli kâğıt, bakır mürekkep. Renk yalnızca kuram ailelerini kodlar.
    Düzen: kapak levhası, yaş şeridi + ayrıntı, kuram dizini + ayrıntı, karşılaştırma tablosu, beyin levhaları, ders sunumu. */
 :root {
-  --bg: #ece2cc;
-  --surface: #f7f0e1;
-  --sunk: #e4d8bf;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --sunk: #f4f1ea;
   --ink: #2a1f16;
   --muted: #6a5845;
   --line: #c9b896;
   --accent: #7b2d1e;
-  --accent-ink: #f7f0e1;
+  --accent-ink: #ffffff;
 
   --f-psa: #8a3324;
   --f-pss: #8d6418;
