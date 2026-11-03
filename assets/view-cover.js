@@ -55,10 +55,8 @@
     var defs = "", body = "", labels = "";
     model.fams.forEach(function (fid, j) {
       var f = U.famById[fid], L = model.layers[j];
-      defs += '<pattern id="hatch-' + fid + '" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(' + (35 + j * 14) + ')">' +
-        '<rect width="5" height="5" style="fill:color-mix(in srgb, ' + f.color + ' 16%, var(--surface))"/><line x1="0" y1="0" x2="0" y2="5" style="stroke:' + f.color + ';stroke-width:1.1;stroke-opacity:0.75"/></pattern>';
       var d = "M " + pts(L.top).replace(/ /g, " L ") + " L " + pts(L.bot.slice().reverse()).replace(/ /g, " L ") + " Z";
-      body += '<path d="' + d + '" class="stream" data-fam="' + fid + '" style="fill:url(#hatch-' + fid + ');stroke:' + f.color + '"/>';
+      body += '<path d="' + d + '" class="stream" data-fam="' + fid + '" style="fill:' + f.color + '"/>';
       var best = 0, bi = 0;
       L.top.forEach(function (p, i) { var h = L.bot[i][1] - p[1]; if (h > best && i > 8 && i < N - 30) { best = h; bi = i; } });
       if (best > 15) {
@@ -98,7 +96,7 @@
     U.$("coverWrap").innerHTML =
       '<div class="cover-plate">' +
       '<div class="cover-top"><span>Levha I</span><span>Psikiyatri ve çocuk psikiyatrisi için</span><span>MMXXVI</span></div>' +
-      '<h1 class="cover-title"><img class="cover-logo logo-light" src="assets/img/brand/logo.svg" alt="Ruhsal Gelişim Atlası" width="890" height="348" loading="lazy" decoding="async"><img class="cover-logo logo-dark" src="assets/img/brand/logo-acik.svg" alt="Ruhsal Gelişim Atlası" width="890" height="348" loading="lazy" decoding="async"></h1>' +
+      '<h1 class="cover-title"><span class="brand" role="img" aria-label="Ruhsal Gelişim Atlası"><span class="brand-mark"><img class="logo-light" src="assets/img/brand/amblem.svg" alt="" width="64" height="64" decoding="async"><img class="logo-dark" src="assets/img/brand/amblem-acik.svg" alt="" width="64" height="64" decoding="async"></span><span class="brand-words"><span class="brand-kicker">Ruhsal Gelişim</span><span class="brand-name">Atlası</span></span></span></h1>' +
       '<p class="cover-sub">Doğum öncesinden yaşlılığa: ' + A.theories.length + " kuram, " + U.NB + " yaş dönemi, beynin olgunlaşması ve kanıt</p>" +
       '<figure class="cover-fig"><div class="stream-wrap" id="streamWrap">' + streamSvg() + '<div class="sweep" aria-hidden="true"></div><div class="guide" id="streamGuide" hidden><span></span></div></div>' +
       "<figcaption>Her şerit bir kuram ailesidir; kalınlığı, o yaşta kaç kuramın bir evre tanımladığını gösterir. Üstteki ince çizgi ortalama kortikal olgunlaşmadır. Bir yaşı açmak için grafiğe dokunun.</figcaption></figure>" +
