@@ -317,6 +317,8 @@ ul.ticks li::marker { color: var(--muted); }
 .foot { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 .foot .wrap { padding-block: 22px 32px; }
 .foot p { max-width: 90ch; }
+.foot .foot-credit { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+.foot a { color: var(--accent); }
 
 /* Duyarlı düzen */
 @media (max-width: 980px) {

@@ -80,8 +80,10 @@ data/portreler.js        Kuramcı portrelerinin kaynak ve lisans bilgileri
 
 Bu kaynak eğitim amaçlıdır ve klinik değerlendirmenin yerini tutmaz.
 
-## Lisans
+## Yazarlar ve lisans
 
-Ruhsal Gelişim Atlası, [Creative Commons Atıf-GayriTicari 4.0 Uluslararası (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.tr) ile lisanslanmıştır: atıf vererek ticari olmayan amaçlarla kopyalanabilir, paylaşılabilir ve uyarlanabilir. Kuramcı portreleri, Gray's Anatomy levhaları ve CDC basamakları kendi lisanslarına tabidir; ayrıntılar [LICENSE](LICENSE) dosyasındadır.
+Özgün eser: **Dr. Mehmet Tekden**. Uyarlayan: **Miraç Barış Usta** (2026).
 
-Önerilen atıf: Usta MB. *Ruhsal Gelişim Atlası*. 2026. https://hypothermia15.github.io/gelisim/
+Özgün yazarın açık lisans onayı alınana kadar tüm hakları saklıdır; ayrıntılar ve üçüncü taraf içerik (kuramcı portreleri, Gray's Anatomy levhaları, CDC basamakları) için [LICENSE](LICENSE) dosyasına bakınız.
+
+Önerilen atıf: Tekden M. *Ruhsal Gelişim Atlası*. Uyarlayan: Usta MB. 2026. https://hypothermia15.github.io/gelisim/
