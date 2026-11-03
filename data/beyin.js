@@ -13,7 +13,7 @@ ATLAS.brain = {
       extra: [],
       caption: "Sol hemisferin orta hat yüzü; ön taraf sağda. Kesikli çizgili yapılar derindedir ve izdüşüm olarak gösterilmiştir." }
   },
-  credit: "Levhalar: Henry Vandyke Carter, Gray's Anatomy of the Human Body, 20. baskı (1918), Şekil 726 ve 727. Kamu malı; Wikimedia Commons.",
+  credit: "Çizimler: Henry Vandyke Carter, Gray's Anatomy of the Human Body, 20. baskı (1918), Şekil 726 ve 727. Kamu malı; Wikimedia Commons.",
   regions: [
     { id: "dlpfc", name: "Dorsolateral prefrontal korteks", short: "DLPFC", curve: [[-0.75, 0], [0, 0.08], [1, 0.25], [3, 0.4], [6, 0.55], [12, 0.72], [18, 0.88], [25, 1], [55, 1], [90, 0.62]],
       shapes: [{v:  "lat", poly:  "20,160 55,105 130,62 240,28 330,12 335,100 325,170 300,175 240,185 150,210 90,220 20,215"}],

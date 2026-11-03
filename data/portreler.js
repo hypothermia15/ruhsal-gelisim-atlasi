@@ -3,7 +3,7 @@
    Credit) okunmuştur. cc: true olan görseller atıf gerektirir: fotoğrafçı, lisans bağlantısı, kaynak ve yapılan değişiklik
    portrenin altında ve kaynakçanın "Görseller ve atıflar" bölümünde gösterilir. Görseller 4:5 oranında kırpılmış, gri
    tonlamaya çevrilmiş ve küçültülmüştür; CC BY-SA görsellerin bu uyarlamaları da aynı lisansla (CC BY-SA) paylaşılır.
-   Uygun açık lisanslı portresi bulunmayan kuramcılar için monogram levhası gösterilir. */
+   Uygun açık lisanslı portresi bulunmayan kuramcılar için monogram gösterilir. */
 ATLAS.portraits = {
   people: {
     freud: { name: "Sigmund Freud", life: "1856–1939", img: "assets/img/portraits/freud.jpg", w: 320, h: 400, year: "Yaklaşık 1921", author: "Max Halberstadt", license: "Kamu malı",

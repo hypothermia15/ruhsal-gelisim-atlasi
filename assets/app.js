@@ -313,7 +313,7 @@
       '<div class="panel"><div class="panel-title">Yöntem</div><p>' + esc(t.method) + '</p></div>' +
       '<div class="panel"><div class="panel-title">Kanıt düzeyi ' + U.meter(t.ev) + "</div><p><b>" + esc(A.evidenceScale[t.ev]) + ".</b> " + esc(t.evNote) + "</p></div></div>" + html;
   }
-  /* Kuramcı portreleri: Wikimedia Commons'ta kamu malı, CC0, CC BY ya da CC BY-SA lisanslı fotoğraflar (atıfla); yoksa monogram levhası */
+  /* Kuramcı portreleri: Wikimedia Commons'ta kamu malı, CC0, CC BY ya da CC BY-SA lisanslı fotoğraflar (atıfla); yoksa monogram */
   function licLink(p) { return p.licenseUrl ? '<a href="' + esc(p.licenseUrl) + '" target="_blank" rel="noopener">' + esc(p.license) + "</a>" : esc(p.license); }
   A.portraitLicense = licLink;
   function initials(name) {

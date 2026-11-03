@@ -104,7 +104,7 @@
       }).join("") + "</div>", c.lenses.length + " kuram");
     var fig = A.views.beyin && A.views.beyin.mini ? A.views.beyin.mini(c.age) : "";
     add("beyin", "Nörobiyolojik bağlam",
-      '<div class="cf-brain"><button type="button" class="mini-brain" data-brain="' + c.age + '" aria-label="Beyin levhalarında aç">' + fig + "<span>Beyin levhalarında aç →</span></button>" +
+      '<div class="cf-brain"><button type="button" class="mini-brain" data-brain="' + c.age + '" aria-label="Beyin haritasında aç">' + fig + "<span>Beyin haritasında aç →</span></button>" +
       '<div><p>' + esc(c.brain.text) + '</p><div class="cf-regions">' + c.brain.regions.map(function (r) { return '<button type="button" class="btn ghost" data-brain="' + c.age + '" data-region="' + r + '">' + esc(regionName(r)) + "</button>"; }).join("") + "</div></div></div>");
     add("ayirici", "Ayırıcı tanı",
       '<div class="cmp-scroll"><table class="cmp cf-ddx"><thead><tr><th>Olasılık</th><th>Sınıflama</th><th>Lehine</th><th>Aleyhine ya da dikkat</th></tr></thead><tbody>' +

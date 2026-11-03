@@ -1,6 +1,6 @@
-/* Gravür: 19. yüzyıl anatomi atlası. Sepya mürekkep, beyaz kâğıt, levha çerçeveleri. Okunabilirlik için Source Serif 4 (başlık) ve Noto Sans (metin).
-   Koyu temada aynı atlas "gece levhası" olarak: isli kâğıt, bakır mürekkep. Renk yalnızca kuram ailelerini kodlar.
-   Düzen: kapak levhası, yaş şeridi + ayrıntı, kuram dizini + ayrıntı, karşılaştırma tablosu, beyin levhaları, ders sunumu. */
+/* Uyarlama kimliği (Dr. M. B. Usta, 2026): beyaz zemin, petrol mavisi vurgu, ince çizgili kartlar, "gelişim halkaları" amblemi.
+   Başlık Source Serif 4, metin Noto Sans. Renk yalnızca kuram ailelerini kodlar; aile paleti renk körlüğü ayrımı için doğrulandı.
+   Özgün tasarım: Dr. Mehmet Tekden (gravür / anatomi atlası üslubu). */
 :root {
   --bg: #ffffff;
   --surface: #ffffff;
@@ -520,7 +520,7 @@ table.cmp.with-neu { min-width: 980px; }
   .rates .rate-bar { display: none; }
 }
 
-/* ===== Gravür ayrıntıları: büyük harf etiketler, levha çerçeveleri, eşit genişlikli rakamlar ===== */
+/* ===== Ayrıntılar: büyük harf etiketler, kart çerçeveleri, eşit genişlikli rakamlar ===== */
 body { font-size: 16px; background-image: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--surface) 70%, transparent), transparent 70%); }
 body::before { background: var(--surface); }
 .masthead { border-bottom: 4px double var(--ink); background-image: repeating-linear-gradient(135deg, transparent 0 7px, color-mix(in srgb, var(--ink) 4%, transparent) 7px 8px); }
@@ -616,7 +616,7 @@ body[data-view="kapak"] .masthead { display: none; }
 .cover-credit { text-align: center; margin: 0 auto; }
 @media (max-width: 860px) { .cover-cols { grid-template-columns: minmax(0, 1fr); } }
 
-/* ===== Gravür beyin levhaları ===== */
+/* ===== Beyin haritası (Gray's Anatomy çizimleri) ===== */
 .plate { mix-blend-mode: var(--plate-blend); filter: var(--plate-filter); pointer-events: none; }
 .brain-svg .b-base { fill: var(--ramp-lo); stroke: none; }
 .brain-svg .br { stroke: none; transition: fill 0.2s linear; }
@@ -982,3 +982,5 @@ html.deck-open, html.deck-open body { overflow: hidden; }
 .stream { stroke: var(--surface) !important; stroke-width: 2; stroke-linejoin: round; }
 .stream-l { font: 600 14px/1 var(--body); fill: var(--ink) !important; stroke: color-mix(in srgb, var(--surface) 85%, transparent); stroke-width: 3px; }
 .tabbar { border-bottom: 1px solid var(--line) !important; box-shadow: var(--shadow); }
+.cover-byline { text-align: center; font-size: 14px; color: var(--muted); margin: -4px auto 0; }
+.cover-byline b { color: var(--ink); font-weight: 600; }

@@ -1,4 +1,4 @@
-/* Beyin gelişimi haritası: Gray's Anatomy (1918) levhaları üzerinde renklenen bölgeler, yaş kaydırıcısı, bölge ayrıntısı. */
+/* Beyin gelişimi haritası: Gray's Anatomy (1918) çizimleri üzerinde renklenen bölgeler, yaş kaydırıcısı, bölge ayrıntısı. */
 (function () {
   "use strict";
   var A = window.ATLAS, U = A.U, esc = U.esc, B = A.brain;
@@ -28,7 +28,7 @@
     if (sh.ellipse) return '<ellipse cx="' + sh.ellipse[0] + '" cy="' + sh.ellipse[1] + '" rx="' + sh.ellipse[2] + '" ry="' + sh.ellipse[3] + '"' + attrs + "/>";
     return '<path d="' + sh.path + '"' + attrs + "/>";
   }
-  /* Gravür levhası: renkli bölgeler altta, levha "multiply" ile üstte; levhada olmayan yapılar maskeyle dışarıda çizilir */
+  /* Gravür çizimi: renkli bölgeler altta, çizim "multiply" ile üstte; çizimde olmayan yapılar maskeyle dışarıda çizilir */
   function svg(v, age, opts) {
     var id = "bp" + (++uid), P = B.plates[v];
     var outside = "", cortex = "", deep = "", label = "";

@@ -1,4 +1,4 @@
-/* Kapak: başlık levhası, kuram ailelerinin yaşam boyu akış grafiği (streamgraph), içindekiler, özet. */
+/* Kapak: başlık sayfası, kuram ailelerinin yaşam boyu akış grafiği (streamgraph), içindekiler, özet. */
 (function () {
   "use strict";
   var A = window.ATLAS, U = A.U, esc = U.esc;
@@ -78,7 +78,7 @@
       ["kuram", "Kuramlar", A.theories.length + " kuramın evreleri, kanıtı, eleştirisi ve klinik karşılığı"],
       ["karsilastir", "Karşılaştırma", "Kuramları aynı yaş satırlarında yan yana okuma"],
       ["vaka", "Vaka modu", (A.cases || []).length + " eğitim vakası: kuramların okuması, ayırıcı tanı, kanıta dayalı yaklaşım"],
-      ["beyin", "Beyin levhaları", "Gray's Anatomy levhaları üzerinde bölgelerin olgunlaşması"],
+      ["beyin", "Beyin haritası", "Gray's Anatomy çizimleri üzerinde bölgelerin olgunlaşması"],
       ["cizelge", "Çizelge", "Bütün kuramlar ve nörobiyolojik izler tek eksende"],
       ["deneyler", "Deneyler", A.experiments.length + " çalışma, müdahale denemeleri ve kanıt durumu"],
       ["ders", "Ders ve sunum", "Hazır ders akışları, sunum modu, tartışma soruları"],
@@ -98,12 +98,13 @@
       '<div class="cover-top"><span>Gelişim kaynağı</span><span>Psikiyatri ve çocuk psikiyatrisi için</span><span>2026</span></div>' +
       '<h1 class="cover-title"><span class="brand" role="img" aria-label="Ruhsal Gelişim Atlası"><span class="brand-mark"><img class="logo-light" src="assets/img/brand/amblem.svg" alt="" width="64" height="64" decoding="async"><img class="logo-dark" src="assets/img/brand/amblem-acik.svg" alt="" width="64" height="64" decoding="async"></span><span class="brand-words"><span class="brand-kicker">Ruhsal Gelişim</span><span class="brand-name">Atlası</span></span></span></h1>' +
       '<p class="cover-sub">Doğum öncesinden yaşlılığa: ' + A.theories.length + " kuram, " + U.NB + " yaş dönemi, beynin olgunlaşması ve kanıt</p>" +
+      '<p class="cover-byline">Uyarlayan: <b>Dr. Miraç Barış Usta</b> · Özgün eser: Dr. Mehmet Tekden</p>' +
       '<figure class="cover-fig"><div class="stream-wrap" id="streamWrap">' + streamSvg() + '<div class="sweep" aria-hidden="true"></div><div class="guide" id="streamGuide" hidden><span></span></div></div>' +
       "<figcaption>Her şerit bir kuram ailesidir; kalınlığı, o yaşta kaç kuramın bir evre tanımladığını gösterir. Üstteki ince çizgi ortalama kortikal olgunlaşmadır. Bir yaşı açmak için grafiğe dokunun.</figcaption></figure>" +
-      '<div class="cover-actions"><a class="btn" href="#yas">Yaşa göre keşfet</a><a class="btn ghost" href="#kuram">Kuramları incele</a><a class="btn ghost" href="#beyin">Beyin levhaları</a><a class="btn ghost" href="#ders">Ders ve sunum modu</a></div>' +
+      '<div class="cover-actions"><a class="btn" href="#yas">Yaşa göre keşfet</a><a class="btn ghost" href="#kuram">Kuramları incele</a><a class="btn ghost" href="#beyin">Beyin haritası</a><a class="btn ghost" href="#ders">Ders ve sunum modu</a></div>' +
       "</div>" +
       '<div class="cover-cols"><section><h2>İçindekiler</h2>' + contents() + "</section>" +
-      '<section><h2>Bu atlasta</h2><dl class="cover-stats"><dt>' + A.theories.length + "</dt><dd>kuram; " + rare + " tanesi ders kitaplarında az yer alır</dd><dt>" + cdcN + "</dt><dd>CDC 2022 gelişim basamağı (0-5 yaş, Türkçe)</dd><dt>" + A.experiments.length + "</dt><dd>deney ve çalışma; " + rct + " müdahale denemesi</dd><dt>" + Object.keys(A.refs || {}).length + "</dt><dd>DOI ve PubMed ile doğrulanmış kaynak</dd><dt>" + A.brain.regions.length + "</dt><dd>beyin bölgesi, iki gravür levhası üzerinde</dd></dl>" +
+      '<section><h2>Bu atlasta</h2><dl class="cover-stats"><dt>' + A.theories.length + "</dt><dd>kuram; " + rare + " tanesi ders kitaplarında az yer alır</dd><dt>" + cdcN + "</dt><dd>CDC 2022 gelişim basamağı (0-5 yaş, Türkçe)</dd><dt>" + A.experiments.length + "</dt><dd>deney ve çalışma; " + rct + " müdahale denemesi</dd><dt>" + Object.keys(A.refs || {}).length + "</dt><dd>DOI ve PubMed ile doğrulanmış kaynak</dd><dt>" + A.brain.regions.length + "</dt><dd>beyin bölgesi, iki gravür çizimi üzerinde</dd></dl>" +
       '<h3>Kuram aileleri</h3><ul class="fam-legend">' + A.families.map(function (f) { return '<li style="--c:' + f.color + '">' + U.famIcon(f.id) + "<span>" + esc(f.name) + "</span></li>"; }).join("") + "</ul></section></div>" +
       '<p class="src-note cover-credit">' + esc(A.brain.credit) + " Kuramcı portreleri: Wikimedia Commons'tan kamu malı, CC0, CC BY ve CC BY-SA lisanslı fotoğraflar; atıfları kuram sayfalarında ve kaynakçada. Gelişim basamakları: " + esc(A.cdcMeta ? A.cdcMeta.citation : "") + "</p>";
   }
