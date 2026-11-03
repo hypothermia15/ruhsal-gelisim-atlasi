@@ -98,7 +98,7 @@
       '<div class="cover-top"><span>Gelişim kaynağı</span><span>Psikiyatri ve çocuk psikiyatrisi için</span><span>2026</span></div>' +
       '<h1 class="cover-title"><span class="brand" role="img" aria-label="Ruhsal Gelişim Atlası"><span class="brand-mark"><img class="logo-light" src="assets/img/brand/amblem.svg" alt="" width="64" height="64" decoding="async"></span><span class="brand-words"><span class="brand-kicker">Ruhsal Gelişim</span><span class="brand-name">Atlası</span></span></span></h1>' +
       '<p class="cover-sub">Doğum öncesinden yaşlılığa: ' + A.theories.length + " kuram, " + U.NB + " yaş dönemi, beynin olgunlaşması ve kanıt</p>" +
-      '<p class="cover-byline">Uyarlayan: <b>Dr. Miraç Barış Usta</b> · Özgün eser: Dr. Mehmet Tekden</p>' +
+      '<p class="cover-byline">Uyarlayan: <b>Dr. Miraç Barış Usta</b></p>' +
       '<figure class="cover-fig"><div class="stream-wrap" id="streamWrap">' + streamSvg() + '<div class="sweep" aria-hidden="true"></div><div class="guide" id="streamGuide" hidden><span></span></div></div>' +
       "<figcaption>Her şerit bir kuram ailesidir; kalınlığı, o yaşta kaç kuramın bir evre tanımladığını gösterir. Üstteki ince çizgi ortalama kortikal olgunlaşmadır. Bir yaşı açmak için grafiğe dokunun.</figcaption></figure>" +
       '<div class="cover-actions"><a class="btn" href="#yas">Yaşa göre keşfet</a><a class="btn ghost" href="#kuram">Kuramları incele</a><a class="btn ghost" href="#beyin">Beyin haritası</a><a class="btn ghost" href="#ders">Ders ve sunum modu</a></div>' +
