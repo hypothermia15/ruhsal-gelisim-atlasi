@@ -33,7 +33,12 @@ Açmak için `index.html` dosyasını tarayıcıda açmanız yeterlidir (sunucu 
 
 ## Tasarım
 
-Logo ve amblem: halkalı bir gezegen gibi çizilmiş gravür beyin ve 'Ruhsal Gelişim Atlası' yazısı; üst bantta, kapakta, sekme çubuğunda ve sekme simgesinde (favicon) kullanılır. Açık temada koyu mürekkepli, koyu temada açık mürekkepli sürüm gösterilir. Gravür: 19. yüzyıl anatomi atlası üslubu (sepya mürekkep, fildişi kâğıt, levha çerçeveleri, Cormorant ve EB Garamond, küçük büyük harfler, eski üslup rakamlar). Koyu temada aynı atlas "gece levhası" olarak görünür. Her kuram ailesinin bir simgesi vardır; çizelgede seçili yaş çizgisi ve imleç kılavuzu, yaş değişiminde yumuşak geçiş bulunur.
+Bu sürüm, özgün atlasın (Dr. Mehmet Tekden; gravür / 19. yüzyıl anatomi atlası üslubu) görsel kimliği yeniden tasarlanmış uyarlamasıdır (Miraç Barış Usta, 2026).
+
+- **Amblem: "gelişim halkaları".** Merkezdeki nokta başlangıcı, dışa doğru büyüyen üç açık halka gelişim dönemlerini, turuncu nokta büyümenin ucunu simgeler. Üst bantta, kapakta, sekme çubuğunda ve sekme simgesinde (favicon) kullanılır; açık ve koyu tema için iki sürümü vardır.
+- **Renk:** Beyaz zemin, petrol mavisi vurgu (`#0f5e6e`), soğuk nötr gri tonlar. Kuram aileleri sabit sıralı 8 renkle kodlanır; yığılmış grafiklerde komşu renkler renk körlüğü ayrımı için doğrulanmıştır. Aile rengiyle yazılan metinler mürekkeple karıştırılarak en az 4.5:1 kontrasta getirilir.
+- **Yazı:** Başlıklar Source Serif 4, metin ve arayüz Noto Sans.
+- **Grafikler:** Düz dolgulu akış grafiği (şeritler arasında 2 px zemin aralığı), ince çizgili yuvarlak köşeli kartlar, petrol tonlarında beyin olgunlaşma rampası. Koyu tema aynı kimliğin koyu sürümüdür.
 
 ## Kaynaklar ve yöntem notları
 
@@ -59,7 +64,7 @@ assets/view-cover.js     Kapak ve akış grafiği
 assets/view-deck.js      Ders kurucu ve sunum modu
 assets/view-case.js      Vaka modu
 assets/img/              Gray's Anatomy levhaları (kamu malı)
-assets/img/brand/        Logo (açık ve koyu sürüm), amblem ve sekme simgesi
+assets/img/brand/        Amblem (açık ve koyu sürüm) ve sekme simgesi
 assets/img/portraits/    Kuramcı portreleri (Wikimedia Commons; kamu malı, CC0, CC BY, CC BY-SA)
 data/temel.js            Kuram aileleri, kanıt ölçeği, nörobiyolojik izler
 data/yaslar-*.js         Yaş dönemleri
