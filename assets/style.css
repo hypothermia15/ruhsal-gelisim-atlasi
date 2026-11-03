@@ -1,5 +1,6 @@
 /* Uyarlama kimliği (Dr. M. B. Usta, 2026): beyaz zemin, petrol mavisi vurgu, ince çizgili kartlar, "gelişim halkaları" amblemi.
    Başlık Source Serif 4, metin Noto Sans. Renk yalnızca kuram ailelerini kodlar; aile paleti renk körlüğü ayrımı için doğrulandı.
+   Yalnızca açık tema: site her cihazda beyaz zeminle görünür.
    Özgün tasarım: Dr. Mehmet Tekden (gravür / anatomi atlası üslubu). */
 :root {
   --bg: #ffffff;
@@ -40,26 +41,7 @@
   --grid: transparent;
   --r: 10px;
   --shadow: 0 1px 2px rgba(29, 36, 48, 0.06);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #12161b; --surface: #181d23; --sunk: #20262e; --ink: #e8ecf0; --muted: #9aa4b0; --line: #2c343e;
-    --accent: #7cc6d4; --accent-ink: #12161b;
-    --f-psa: #3987e5; --f-pss: #d95926; --f-bil: #199e70; --f-bag: #c98500; --f-ahl: #d55181; --f-ymb: #008300; --f-biy: #9085e9; --f-gps: #e66767; --f-neu: #7cc6d4;
-    --ok: #7fd197; --ok-bg: #18301f; --mid: #f0c060; --mid-bg: #33280f; --bad: #f28b82; --bad-bg: #3a1d1b;
-    --ramp-lo: #1c2a30; --ramp-hi: #7cc6d4; --plate-filter: invert(1) hue-rotate(180deg) saturate(0.4); --plate-blend: screen;
-    --shadow: none;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #12161b; --surface: #181d23; --sunk: #20262e; --ink: #e8ecf0; --muted: #9aa4b0; --line: #2c343e;
-  --accent: #7cc6d4; --accent-ink: #12161b;
-  --f-psa: #3987e5; --f-pss: #d95926; --f-bil: #199e70; --f-bag: #c98500; --f-ahl: #d55181; --f-ymb: #008300; --f-biy: #9085e9; --f-gps: #e66767; --f-neu: #7cc6d4;
-  --ok: #7fd197; --ok-bg: #18301f; --mid: #f0c060; --mid-bg: #33280f; --bad: #f28b82; --bad-bg: #3a1d1b;
-  --ramp-lo: #1c2a30; --ramp-hi: #7cc6d4; --plate-filter: invert(1) hue-rotate(180deg) saturate(0.4); --plate-blend: screen;
-  --shadow: none;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; --ct: color-mix(in oklab, var(--c, var(--ink)) 60%, var(--ink)); }
@@ -912,8 +894,6 @@ html.deck-open, html.deck-open body { overflow: hidden; }
 .por figcaption b { color: var(--ink); font: 600 15px/1.2 var(--display); }
 .por-lic { text-transform: uppercase; font-size: 0.82em; letter-spacing: 0.05em; }
 .por-lic a { color: var(--accent); }
-:root[data-theme="dark"] .por-frame img { filter: grayscale(1) sepia(0.25) brightness(0.92) contrast(1.06); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .por-frame img { filter: grayscale(1) sepia(0.25) brightness(0.92) contrast(1.06); } }
 @media (max-width: 860px) {
   .td-head.has-por { grid-template-columns: minmax(0, 1fr); }
   .td-head.has-por > .por-row { order: -1; }
@@ -939,14 +919,7 @@ html.deck-open, html.deck-open body { overflow: hidden; }
 .sl-por img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--ink); padding: 0.3em; background: var(--surface); filter: grayscale(1) sepia(0.32) contrast(1.04); }
 .sl-por figcaption { font-size: 0.62em; line-height: 1.35; color: var(--muted); }
 
-/* ===== Logo ve amblem: açık temada koyu mürekkepli, koyu temada açık mürekkepli sürüm ===== */
-.logo-dark { display: none !important; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .logo-light { display: none !important; }
-  :root:not([data-theme="light"]) .logo-dark { display: block !important; }
-}
-:root[data-theme="dark"] .logo-light { display: none !important; }
-:root[data-theme="dark"] .logo-dark { display: block !important; }
+/* ===== Amblem ===== */
 .tabrow { display: flex; align-items: center; gap: 10px; min-width: 0; }
 .tabrow .tabs { flex: 1 1 auto; min-width: 0; }
 .tab-mark { flex: none; display: block; width: 40px; height: 40px; line-height: 0; opacity: 0.92; }

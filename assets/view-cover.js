@@ -96,7 +96,7 @@
     U.$("coverWrap").innerHTML =
       '<div class="cover-plate">' +
       '<div class="cover-top"><span>Gelişim kaynağı</span><span>Psikiyatri ve çocuk psikiyatrisi için</span><span>2026</span></div>' +
-      '<h1 class="cover-title"><span class="brand" role="img" aria-label="Ruhsal Gelişim Atlası"><span class="brand-mark"><img class="logo-light" src="assets/img/brand/amblem.svg" alt="" width="64" height="64" decoding="async"><img class="logo-dark" src="assets/img/brand/amblem-acik.svg" alt="" width="64" height="64" decoding="async"></span><span class="brand-words"><span class="brand-kicker">Ruhsal Gelişim</span><span class="brand-name">Atlası</span></span></span></h1>' +
+      '<h1 class="cover-title"><span class="brand" role="img" aria-label="Ruhsal Gelişim Atlası"><span class="brand-mark"><img class="logo-light" src="assets/img/brand/amblem.svg" alt="" width="64" height="64" decoding="async"></span><span class="brand-words"><span class="brand-kicker">Ruhsal Gelişim</span><span class="brand-name">Atlası</span></span></span></h1>' +
       '<p class="cover-sub">Doğum öncesinden yaşlılığa: ' + A.theories.length + " kuram, " + U.NB + " yaş dönemi, beynin olgunlaşması ve kanıt</p>" +
       '<p class="cover-byline">Uyarlayan: <b>Dr. Miraç Barış Usta</b> · Özgün eser: Dr. Mehmet Tekden</p>' +
       '<figure class="cover-fig"><div class="stream-wrap" id="streamWrap">' + streamSvg() + '<div class="sweep" aria-hidden="true"></div><div class="guide" id="streamGuide" hidden><span></span></div></div>' +
