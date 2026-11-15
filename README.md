@@ -32,9 +32,19 @@ Sitede turuncu **Ek 2026** etiketiyle gösterilen içerik uyarlamada eklenmişti
 | **Türkiye notları** | Yaş görünümünde her dönem için Türkiye'de geliştirilmiş ya da sınanmış araçlar ve yerel veriler: Gelişimi İzleme ve Destekleme Rehberi, Denver II, M-CHAT-R/F İstanbul örneklemi, EPICPAT-T yaygınlık çalışması, puberte yaşları, büyüme referansları, Kağıtçıbaşı'nın çalışmaları. |
 | **Atlas içi arama** | Üst şeritteki “Ara” düğmesi ya da `/` tuşu: kuramlar, evreler, kavramlar, yaş dönemleri, vakalar, çalışmalar, beyin bölgeleri, Türkiye notları ve kısaltmalar içinde arar; Türkçe harfler olmadan yazılan sorguları da bulur. |
 | **Kısaltmalar** | Atlasta geçen 65 kısaltmanın açılımı; Kaynakça görünümünün başında ve aramada. |
-| **Çalış** | Atlasın verisinden üretilen sorular (evre hangi kuramın, bu yaşta hangi evre, CDC basamağı hangi yaşta, bulgu hangi çalışmanın, kuramı destekler mi sorgular mı, kanıt durumu, tanımdan kavrama), 166 kavram kartı ve ilerleme izlemi. İlerleme yalnızca tarayıcıda saklanır. |
+| **Çalış** | Atlasın verisinden üretilen sorular (evre hangi kuramın, bu yaşta hangi evre, CDC basamağı hangi yaşta, bulgu hangi çalışmanın, kuramı destekler mi sorgular mı, kanıt durumu, tanımdan kavrama, temel sav hangi kuramın, vaka bulgusu beklenen mi kırmızı bayrak mı, işlev hangi beyin bölgesinin), 166 kavram kartı ve ilerleme izlemi. İlerleme yalnızca tarayıcıda saklanır. |
+| **Değerlendirme testi** | Çalış görünümünde 20 soruluk puanlı test: kuramlar ve evreler (6), gelişim basamakları (3), deneyler ve kanıt (5), kavramlar (3), klinik ve beyin (3). Doğru yanıt 100 puan, hızlı yanıt 50 puana kadar prim getirir (ilk 8 saniyede tam, 60. saniyede sıfır); en yüksek puan 3000'dir. Test bitince alan dökümü ve soru soru açıklamalar gösterilir. |
+| **Skor tabloları** | Her deneme bu tarayıcıdaki tabloya yazılır. Eğitici “Sınıf oluştur” ile altı karakterlik bir kod alır; bu kodu giren katılımcıların en iyi puanı, ilk deneme puanı ve deneme sayısı sınıfın ortak tablosunda görünür. Sınıfı oluşturan tarayıcı kayıt silebilir ve sınıfı kapatabilir. |
 
 Eklenen 40 kaynağın 38'inin künyesi PubMed kayıtlarından üretilmiş, PubMed'de dizinlenmeyen ikisi (Madigan ve ark., 2023; Nisan ve Kohlberg, 1982) Crossref ve yayıncı kaydından doğrulanmıştır. Yöntem ve bulgu özetleri makale özetlerine dayanır. Kuramcı yaşamöyküleri ve kurgusal vinyetler uyarlayanın derlemesidir.
+
+### Ortak skor tablosu nasıl çalışır?
+
+Atlasın kendisi statiktir. Sınıf tabloları, atlası barındıran sitedeki küçük bir sunucu işlevinde (`/api/atlas-skor`, Netlify Functions ve Netlify Blobs) tutulur; işlevin kaynağı site deposundadır. Atlas başka bir yerde (ör. GitHub Pages ya da diskten) açıldığında bu uç nokta bulunmaz: test ve bu cihazdaki tablo çalışır, sınıf tabloları kullanılamaz.
+
+- **Saklanan veri:** sınıf adı ve oluşturulma tarihi; her katılımcı için rumuz, en iyi puan, doğru sayısı, süre, deneme sayısı, ilk deneme puanı, tarih ve tarayıcının ürettiği rastgele bir kimlik. Ad, e-posta ya da IP adresi saklanmaz; kimlik tabloda gösterilmez.
+- **Erişim:** sınıf kodunu bilen herkes tabloyu görebilir ve skor yazabilir. Yönetici anahtarı yalnızca sınıfı oluşturan tarayıcıda saklanır; tarayıcı verisi silinirse sınıf o cihazdan yönetilemez.
+- **Sınır:** puan sunucuda yeniden hesaplanır, ancak sorular ve yanıt denetimi tarayıcıdadır. Tablo bir sınav güvencesi sağlamaz; sınıf içi karşılaştırma ve öğrenmeyi özendirme aracıdır. Sorular her denemede yeniden üretildiği için denemeler aynı soru setini içermez; dağılım sabittir.
 
 ## Okunurluk (Kasım 2026)
 
@@ -110,6 +120,7 @@ data/ek-turkiye.js       Yaş dönemlerine göre Türkiye notları
 data/ek-vakalar.js       Uyarlamada eklenen üç vaka
 data/ek-profil.js        Uyarlamada eklenen dört kuram profili
 assets/view-study.js     Çalış bölümü: sorular, kavram kartları, ilerleme
+assets/view-exam.js      Değerlendirme testi ve skor tabloları (bu cihaz ve sınıf kodu)
 data/ek-kisaltmalar.js   Kısaltmalar sözlüğü
 assets/view-tools.js     Yazı boyutu denetimi ve atlas içi arama
 assets/prefs.js          Yazı boyutu tercihinin sayfa çizilmeden uygulanması

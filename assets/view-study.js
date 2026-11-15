@@ -1,4 +1,5 @@
 /* Çalış (#calis): uyarlamada eklenen öğrenme araçları (Usta, 2026).
+   Değerlendirme testi ve skor tabloları view-exam.js içindedir; soru üreticileri buradan paylaşılır (A.quizGen).
    Sorular atlasın kendi verisinden üretilir: kuram evreleri, yaş dönemleri, CDC basamakları, deneyler ve profil kavramları.
    İlerleme (görülen sayfalar, test sonuçları, bilinen kartlar) yalnızca bu tarayıcıda saklanır. */
 (function () {
@@ -45,11 +46,16 @@
   var stageNameCount = {};
   A.theories.forEach(function (t) { t.stages.forEach(function (s) { stageNameCount[s.name] = (stageNameCount[s.name] || 0) + 1; }); });
 
+  /* Evre adı ya da görevi kuramın adını ele veriyorsa soru üretilmez (ör. "Yansıtıcı zihinselleştirme" ile "Zihinselleştirme") */
+  function givesAway(t, text) {
+    text = low(text);
+    return low(t.name).split(/[^a-zçğıöşü]+/).some(function (w) { return w.length >= 6 && text.indexOf(w.slice(0, 6)) > -1; });
+  }
   function qStageOwner() {
     var pool = [];
     A.theories.forEach(function (t) {
       t.stages.forEach(function (s, i) {
-        if (stageNameCount[s.name] === 1 && low(s.name).indexOf(low(who(t))) < 0 && s.task && s.task.length > 30) pool.push({ t: t, s: s, i: i });
+        if (stageNameCount[s.name] === 1 && low(s.name).indexOf(low(who(t))) < 0 && s.task && s.task.length > 30 && !givesAway(t, s.name)) pool.push({ t: t, s: s, i: i });
       });
     });
     var x = pool[Math.floor(Math.random() * pool.length)];
@@ -67,6 +73,9 @@
       var best = null, bestO = 0;
       t.stages.forEach(function (s) { var o = U.overlap(s, b); if (o > bestO) { bestO = o; best = s; } });
       if (!best || bestO < 0.7 * (b.to - b.from)) continue;
+      /* aynı evre dörtten çok yaş dönemini kapsıyorsa (ör. "yetişkinlik boyunca") soru ayırt edici olmaz */
+      var kapsar = A.ages.filter(function (o) { return U.overlap(best, o) >= 0.7 * (o.to - o.from); }).length;
+      if (kapsar > 4) continue;
       var others = t.stages.filter(function (s) { return s !== best && s.name !== best.name; });
       if (others.length < 2) continue;
       var idx = t.stages.indexOf(best);
@@ -144,13 +153,56 @@
       c.term, pick(sib, 3).map(function (o) { return o.term; }));
   }
 
+  /* --- Değerlendirme testiyle birlikte eklenen soru türleri --- */
+  function qTheoryCore() {
+    var pool = A.theories.filter(function (t) {
+      var soyad = low(who(t)).split(" ").pop(), ilk = low(t.name).split(/[\s,(]+/)[0];
+      return t.core && t.core.length > 60 && low(t.core).indexOf(soyad) < 0 && (ilk.length < 5 || low(t.core).indexOf(ilk.slice(0, 6)) < 0);
+    });
+    if (pool.length < 4) return qStageOwner();
+    var t = pool[Math.floor(Math.random() * pool.length)];
+    var same = pick(A.theories, 2, function (o) { return o === t || o.fam !== t.fam; });
+    var other = pick(A.theories, 3 - same.length, function (o) { return o === t || same.indexOf(o) > -1; });
+    return build({ kicker: "Hangi kuram?", prompt: "Aşağıdaki temel sav hangi kurama aittir?", detail: t.core,
+      explain: tLabel(t) + ". " + (t.engine || ""), go: { theory: t.id, label: "Kuramı aç" } }, tLabel(t), same.concat(other).map(tLabel));
+  }
+  function qTheoryEvidence() {
+    var pool = A.theories.filter(function (t) { return t.ev >= 1 && t.ev <= 4 && t.evNote; });
+    var t = pool[Math.floor(Math.random() * pool.length)];
+    return { kicker: "Kuramın kanıt düzeyi", prompt: "Atlas “" + tLabel(t) + "” kuramının kanıt düzeyini nasıl sınıflar?", detail: t.core,
+      explain: A.evidenceScale[t.ev] + ". " + t.evNote, go: { theory: t.id, label: "Kuramı aç" },
+      opts: [1, 2, 3, 4].map(function (i) { return A.evidenceScale[i]; }), correct: t.ev - 1 };
+  }
+  var FINDING = [["norm", "Beklenen"], ["izle", "İzlenmeli"], ["bayrak", "Kırmızı bayrak"]];
+  function qCaseFinding() {
+    /* üç düzey eşit olasılıkla sorulur */
+    var want = Math.floor(Math.random() * FINDING.length), pool = [];
+    (A.cases || []).forEach(function (c) { (c.findings || []).forEach(function (f) { if (f[1] === FINDING[want][0] && f[0] && f[2]) pool.push({ c: c, f: f }); }); });
+    if (!pool.length) return qExpStatus();
+    var x = pool[Math.floor(Math.random() * pool.length)];
+    return { kicker: "Vaka bulgusu · " + x.c.ageLabel, prompt: "Bu vakada aşağıdaki bulgu nasıl değerlendirilir?", detail: x.c.ask + " Bulgu: " + x.f[0],
+      explain: x.f[2], go: { "case": x.c.id, label: "Vakayı aç" }, opts: FINDING.map(function (l) { return l[1]; }), correct: want };
+  }
+  function qBrainRegion() {
+    var Rg = ((A.brain && A.brain.regions) || []).filter(function (r) { return r.name && r.func; });
+    if (Rg.length < 4) return qStageOwner();
+    var r = Rg[Math.floor(Math.random() * Rg.length)];
+    return build({ kicker: "Beyin bölgesi", prompt: "Aşağıdaki işlevler en çok hangi beyin bölgesiyle ilişkilendirilir?", detail: r.func,
+      explain: r.name + ". " + String(r.clinic || "").replace(/<[^>]+>/g, ""), go: { region: r.id, label: "Beyin haritasında aç" } },
+      r.name, pick(Rg, 3, function (o) { return o === r; }).map(function (o) { return o.name; }));
+  }
+
   var MODES = [
-    { id: "kuram", name: "Kuramlar ve evreler", desc: "Evre hangi kuramın, bu yaşta hangi evre?", gen: [qStageOwner, qAgeStage] },
+    { id: "kuram", name: "Kuramlar ve evreler", desc: "Evre hangi kuramın, bu yaşta hangi evre?", gen: [qStageOwner, qAgeStage, qTheoryCore] },
     { id: "cdc", name: "CDC basamakları", desc: "0-5 yaş: hangi beceri hangi yaşta beklenir?", gen: [qCdc] },
     { id: "deney", name: "Deneyler ve kanıt", desc: "Bulgu hangi çalışmanın, kuramı destekler mi, kanıt ne kadar sağlam?", gen: [qExpWhich, qExpRelation, qExpStatus] },
     { id: "kavram", name: "Kavramlar", desc: CONCEPTS.length + " profil kavramı: tanımdan kavrama", gen: [qConcept] },
-    { id: "karisik", name: "Karışık", desc: "Bütün soru türlerinden " + N_SORU + " soru", gen: [qStageOwner, qAgeStage, qCdc, qExpWhich, qExpRelation, qExpStatus, qConcept] }
+    { id: "klinik", name: "Klinik ve beyin", desc: "Vaka bulgusu beklenen mi, kırmızı bayrak mı; işlev hangi beyin bölgesinin?", gen: [qCaseFinding, qBrainRegion] },
+    { id: "karisik", name: "Karışık", desc: "Bütün soru türlerinden " + N_SORU + " soru", gen: [qStageOwner, qAgeStage, qCdc, qExpWhich, qExpRelation, qExpStatus, qConcept, qTheoryCore, qCaseFinding, qBrainRegion] }
   ];
+  /* Değerlendirme testi (view-exam.js) aynı üreticileri kullanır */
+  A.quizGen = { stageOwner: qStageOwner, ageStage: qAgeStage, cdc: qCdc, expWhich: qExpWhich, expRelation: qExpRelation, expStatus: qExpStatus,
+    concept: qConcept, theoryCore: qTheoryCore, theoryEvidence: qTheoryEvidence, caseFinding: qCaseFinding, brainRegion: qBrainRegion, shuffle: shuffle, goBtn: goBtn };
   function modeById(id) { return MODES.filter(function (m) { return m.id === id; })[0]; }
 
   /* ---------- test oturumu ---------- */
@@ -183,7 +235,7 @@
   }
   function goBtn(g) {
     if (!g) return "";
-    var attr = g.theory ? 'data-theory="' + g.theory + '"' + (g.stage != null ? ' data-stage="' + g.stage + '"' : "") : g.exp ? 'data-exp="' + g.exp + '"' : g.age ? 'data-goage="' + g.age + '"' : "";
+    var attr = g.theory ? 'data-theory="' + g.theory + '"' + (g.stage != null ? ' data-stage="' + g.stage + '"' : "") : g.exp ? 'data-exp="' + g.exp + '"' : g.age ? 'data-goage="' + g.age + '"' : g["case"] ? 'data-case="' + g["case"] + '"' : g.region ? 'data-region="' + g.region + '"' : "";
     return attr ? '<button type="button" class="linkish" ' + attr + ">" + esc(g.label) + " →</button>" : "";
   }
   function quizHtml() {
@@ -267,14 +319,17 @@
 
   function render() {
     if (!view) return;
+    /* Değerlendirme testi sürerken ya da sonucu açıkken yalnızca test gösterilir */
+    if (A.exam && A.exam.active()) { document.getElementById("studyWrap").innerHTML = '<div id="examSlot"></div>'; A.exam.mount(); return; }
     var modes = MODES.map(function (m) {
       var st = S.quiz[m.id];
       return '<button type="button" class="study-mode" data-quiz="' + m.id + '"' + (R && R.mode === m.id ? ' aria-current="true"' : "") + "><b>" + esc(m.name) + "</b><span>" + esc(m.desc) + "</span><small>" +
         (st && st.rounds ? "En iyi: " + st.best + " / " + N_SORU + " · " + st.rounds + " tur" : N_SORU + " soru") + "</small></button>";
     }).join("");
-    document.getElementById("studyWrap").innerHTML = progressHtml() + nextUp() +
+    document.getElementById("studyWrap").innerHTML = progressHtml() + '<div id="examSlot"></div>' + nextUp() +
       '<div class="section-h"><h3>Kendini sına</h3><span>Sorular atlasın verisinden her seferinde yeniden üretilir</span></div><div class="study-modes">' + modes + "</div>" +
       quizHtml() + '<div class="section-h"><h3>Kavram kartları</h3><span>Ayrıntılı profillerdeki temel kavramlar</span></div>' + cardsHtml();
+    if (A.exam) A.exam.mount();
   }
 
   if (view) {
@@ -298,6 +353,7 @@
       else if ((t = e.target.closest("[data-exp]"))) A.nav.exp(t.dataset.exp);
       else if ((t = e.target.closest("[data-goage]"))) A.nav.age(t.dataset.goage);
       else if ((t = e.target.closest("[data-case]"))) A.nav["case"](t.dataset.case);
+      else if ((t = e.target.closest("[data-region]"))) A.nav.brain(A.state.brainAge, t.dataset.region);
     });
     view.addEventListener("change", function (e) {
       if (e.target.id === "cardSet") { S.cardSet = e.target.value; save(); dealCards(); render(); }

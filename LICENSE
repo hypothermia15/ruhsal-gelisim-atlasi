@@ -7,8 +7,9 @@ Telif hakkı özgün eser için Dr. Mehmet Tekden'e, uyarlamadaki değişiklikle
 (görsel tasarım düzenlemeleri ve eklemeler) için Dr. Miraç Barış Usta'ya aittir.
 
 Uyarlamada eklenen içerik sitede "Ek 2026" etiketiyle gösterilir ve data/ek-*.js
-ile assets/view-study.js dosyalarında tutulur: 2016-2026 çalışmaları, üç vaka,
-dört kuram profili, Türkiye notları ve "Çalış" bölümü. Etiketsiz içerik özgün
+ile assets/view-study.js ve assets/view-exam.js dosyalarında tutulur: 2016-2026
+çalışmaları, üç vaka, dört kuram profili, Türkiye notları, "Çalış" bölümü,
+değerlendirme testi ve skor tabloları. Etiketsiz içerik özgün
 esere aittir.
 
 Kullanım koşulları
