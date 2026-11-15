@@ -40,6 +40,20 @@
           ' <span class="reflinks"><a href="' + esc(p.page) + '" target="_blank" rel="noopener">Wikimedia Commons</a></span></li>';
       }).join("") + "</ul></section>";
   }
+  /* Kısaltmalar sözlüğü (uyarlamada eklendi): arama kutusuyla birlikte süzülür */
+  function abbr() {
+    if (!A.abbr) return "";
+    var n = 0;
+    var groups = A.abbr.map(function (g) {
+      var items = g.items.filter(function (x) { return match(x[0] + " " + x[1] + " " + (x[2] || "")); });
+      n += items.length;
+      return items.length ? '<div class="abbr-g"><h4>' + esc(g.group) + '</h4><dl class="abbr">' + items.map(function (x) {
+        return "<div><dt>" + esc(x[0]) + "</dt><dd>" + esc(x[1]) + (x[2] ? '<span class="abbr-n">' + esc(x[2]) + "</span>" : "") + "</dd></div>";
+      }).join("") + "</dl></div>" : "";
+    }).join("");
+    if (!n) return "";
+    return '<details class="ref-sec abbr-sec" id="kisaltmalar"' + (q ? " open" : "") + '><summary><h3>Kısaltmalar <span>' + n + "</span></h3>" + U.ekPill({ ek: true }) + "</summary>" + groups + "</details>";
+  }
   function list() {
     var refs = A.refs || {}, cb = citedBy(), cm = caseMap();
     var keys = Object.keys(refs).filter(function (k) { return (A.generalRefs || []).indexOf(k) < 0 && match(refs[k].apa); })
@@ -48,7 +62,7 @@
     var prim = A.theories.filter(function (t) { return t.primary && t.primary.some(match); });
     var cdc = A.cdcMeta && match(A.cdcMeta.citation) ? '<section class="ref-sec"><h3>Gelişim basamakları</h3><ul class="refs"><li>' + esc(A.cdcMeta.citation) +
       ' <span class="reflinks"><a href="https://doi.org/' + esc(A.cdcMeta.doi) + '" target="_blank" rel="noopener">DOI</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/' + esc(A.cdcMeta.pmid) + '/" target="_blank" rel="noopener">PubMed</a> · <a href="' + esc(A.cdcMeta.url) + '" target="_blank" rel="noopener">CDC kontrol listeleri</a></span><p class="src-note">' + esc(A.cdcMeta.method) + "</p></li></ul></section>" : "";
-    U.$("refList").innerHTML = cdc +
+    U.$("refList").innerHTML = abbr() + cdc +
       '<section class="ref-sec"><h3>Deneysel çalışmalar, meta-analizler, müdahale denemeleri ve klinik araçlar <span>' + keys.length + "</span></h3><ol class=\"refs\">" + keys.map(function (k) { return item(refs[k], cb[k], cm[k]); }).join("") + "</ol></section>" +
       (gen.length ? '<section class="ref-sec"><h3>Nörobiyoloji ve klinik genel kaynaklar <span>' + gen.length + '</span></h3><ul class="refs">' + gen.map(function (k) { return item(refs[k], null, cm[k]); }).join("") + "</ul></section>" : "") +
       images() +

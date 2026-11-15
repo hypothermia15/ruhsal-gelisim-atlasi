@@ -12,9 +12,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500;1,8..60,600&display=swap">
 <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml">
+<script src="assets/prefs.js"></script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<button type="button" class="skip" id="skipMain">İçeriğe geç</button>
 <header class="masthead">
   <div class="wrap">
     <a href="#kapak" class="mast-title brand" title="Kapağa dön" aria-label="Ruhsal Gelişim Atlası, kapağa dön"><span class="brand-mark"><img class="logo-light" src="assets/img/brand/amblem.svg" alt="" width="64" height="64" decoding="async"></span><span class="brand-words"><span class="brand-kicker">Ruhsal Gelişim</span><span class="brand-name">Atlası</span></span></a>
@@ -37,6 +39,15 @@
       <a href="#calis" class="tab" role="tab" data-view="calis">Çalış</a>
       <a href="#ders" class="tab" role="tab" data-view="ders">Ders ve sunum</a>
       <a href="#kaynakca" class="tab" role="tab" data-view="kaynakca">Kaynakça</a>
+    </div>
+    <div class="tools">
+      <button type="button" class="tool-btn" id="searchOpen" aria-label="Atlasta ara" title="Atlasta ara (kısayol: / tuşu)"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg><span>Ara</span></button>
+      <div class="fs-ctl" role="group" aria-label="Yazı boyutu">
+        <button type="button" data-fs-step="-1" aria-label="Yazıyı küçült" title="Yazıyı küçült">A<small>−</small></button>
+        <button type="button" data-fs-step="1" aria-label="Yazıyı büyüt" title="Yazıyı büyüt">A<small>+</small></button>
+        <button type="button" class="fs-cycle" data-fs-cycle aria-label="Yazı boyutunu değiştir" title="Yazı boyutunu değiştir">A<small>a</small></button>
+        <span class="sr" id="fsOut" aria-live="polite"></span>
+      </div>
     </div></div>
     <div class="families" id="familyFilter" aria-label="Kuram aileleri"></div>
   </div>
@@ -110,12 +121,24 @@
 <footer class="foot">
   <div class="wrap">
     <p>0-5 yaş gelişim basamakları CDC'nin 2022'de revize edilen kontrol listelerinden çevrilmiştir (Zubler ve ark., 2022): basamaklar, çocukların en az %75'inin o yaşta ulaşması beklenen becerilerdir. Kuramların yaş aralıkları kuramcıların önerdiği yaklaşık değerlerdir; bireysel ve kültürel farklılıklar büyüktür. Beyin haritasındaki olgunlaşma endeksi şematiktir. Tanı ölçütleri için DSM-5-TR ve DC:0-5 el kitaplarının kendisine başvurulmalıdır. Bu kaynak eğitim amaçlıdır ve klinik değerlendirmenin yerini tutmaz.</p>
-    <p><span class="status sek">Ek 2026</span> etiketi uyarlamada eklenen içeriği gösterir (Usta, 2026): 2016-2026 çalışmaları, üç vaka, dört kuram profili, Türkiye notları ve “Çalış” bölümü. Etiketsiz içerik özgün atlasa aittir. Bilgiler Kasım 2026 itibarıyladır.</p>
-    <p class="foot-credit">Özgün eser: Dr. Mehmet Tekden · Uyarlayan: Dr. Miraç Barış Usta · 2026. Tüm hakları saklıdır; kuramcı portreleri, Gray's Anatomy çizimleri ve CDC basamakları kendi lisanslarına tabidir (<a href="https://github.com/hypothermia15/ruhsal-gelisim-atlasi/blob/main/LICENSE">lisans ve atıflar</a>).</p>
+    <p><span class="status sek">Ek 2026</span> etiketi uyarlamada eklenen içeriği gösterir (Usta, 2026): 2016-2026 çalışmaları, üç vaka, dört kuram profili, Türkiye notları, “Çalış” bölümü, atlas içi arama ve kısaltmalar sözlüğü. Etiketsiz içerik özgün atlasa aittir. Bilgiler Kasım 2026 itibarıyladır.</p>
+    <p class="foot-credit">Özgün eser: Dr. Mehmet Tekden · Uyarlayan: Dr. Miraç Barış Usta · 2026. Uyarlama özgün yazarın izniyle yayımlanmaktadır. Tüm hakları saklıdır; kuramcı portreleri, Gray's Anatomy çizimleri ve CDC basamakları kendi lisanslarına tabidir (<a href="https://github.com/hypothermia15/ruhsal-gelisim-atlasi/blob/main/LICENSE">lisans ve atıflar</a>).</p>
   </div>
 </footer>
 
 <div id="tip" class="tip" role="tooltip" hidden></div>
+
+<div id="search" class="searchbox" role="dialog" aria-modal="true" aria-label="Atlasta ara" hidden>
+  <div class="sb-panel">
+    <div class="sb-top">
+      <label class="sr" for="searchInput">Atlasta ara</label>
+      <input id="searchInput" type="search" placeholder="Kuram, evre, kavram, çalışma, vaka ya da kısaltma" autocomplete="off" spellcheck="false">
+      <button type="button" class="btn ghost" id="searchClose">Kapat</button>
+    </div>
+    <div id="searchResults" class="sb-results" role="listbox" aria-label="Arama sonuçları"></div>
+    <p class="sb-hint">Yukarı ve aşağı oklarla gezinin, Enter ile açın, Esc ile kapatın.</p>
+  </div>
+</div>
 
 <div id="deck" class="deck" role="dialog" aria-modal="true" aria-label="Sunum" tabindex="-1" hidden>
   <div class="deck-bar">
@@ -171,6 +194,7 @@
 <script src="data/ek-turkiye.js"></script>
 <script src="data/ek-vakalar.js"></script>
 <script src="data/ek-profil.js"></script>
+<script src="data/ek-kisaltmalar.js"></script>
 <script src="assets/util.js"></script>
 <script src="assets/view-brain.js"></script>
 <script src="assets/view-compare.js"></script>
@@ -180,5 +204,6 @@
 <script src="assets/view-deck.js"></script>
 <script src="assets/view-study.js"></script>
 <script src="assets/app.js"></script>
+<script src="assets/view-tools.js"></script>
 </body>
 </html>

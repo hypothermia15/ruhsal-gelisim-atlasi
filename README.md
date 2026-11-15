@@ -30,9 +30,20 @@ Sitede turuncu **Ek 2026** etiketiyle gösterilen içerik uyarlamada eklenmişti
 | **Üç yeni vaka** | Özgün atlasta vakası olmayan dönemler: 16 yaşta kısıtlayıcı yeme, 32 yaşta erişkin DEHB (çocuğuna tanı konan baba), 52 yaşta bakım yükü ve depresyon. |
 | **Dört kuram profili** | Fonagy ve Gergely (zihinselleştirme), Marcia (kimlik statüleri), mizaç (Thomas ve Chess, Kagan, Rothbart), Kağıtçıbaşı (aile değişimi ve özerk-ilişkisel benlik). |
 | **Türkiye notları** | Yaş görünümünde her dönem için Türkiye'de geliştirilmiş ya da sınanmış araçlar ve yerel veriler: Gelişimi İzleme ve Destekleme Rehberi, Denver II, M-CHAT-R/F İstanbul örneklemi, EPICPAT-T yaygınlık çalışması, puberte yaşları, büyüme referansları, Kağıtçıbaşı'nın çalışmaları. |
+| **Atlas içi arama** | Üst şeritteki “Ara” düğmesi ya da `/` tuşu: kuramlar, evreler, kavramlar, yaş dönemleri, vakalar, çalışmalar, beyin bölgeleri, Türkiye notları ve kısaltmalar içinde arar; Türkçe harfler olmadan yazılan sorguları da bulur. |
+| **Kısaltmalar** | Atlasta geçen 65 kısaltmanın açılımı; Kaynakça görünümünün başında ve aramada. |
 | **Çalış** | Atlasın verisinden üretilen sorular (evre hangi kuramın, bu yaşta hangi evre, CDC basamağı hangi yaşta, bulgu hangi çalışmanın, kuramı destekler mi sorgular mı, kanıt durumu, tanımdan kavrama), 166 kavram kartı ve ilerleme izlemi. İlerleme yalnızca tarayıcıda saklanır. |
 
 Eklenen 40 kaynağın 38'inin künyesi PubMed kayıtlarından üretilmiş, PubMed'de dizinlenmeyen ikisi (Madigan ve ark., 2023; Nisan ve Kohlberg, 1982) Crossref ve yayıncı kaydından doğrulanmıştır. Yöntem ve bulgu özetleri makale özetlerine dayanır. Kuramcı yaşamöyküleri ve kurgusal vinyetler uyarlayanın derlemesidir.
+
+## Okunurluk (Kasım 2026)
+
+- Bütün yazı boyutları tek bir ölçek değişkenine (`--fs`) bağlıdır; üst şeritteki A− / A+ düğmeleri dört basamak arasında geçiş yapar ve seçim tarayıcıda saklanır. Sunum (slayt) ve SVG yazıları ölçek dışındadır.
+- 16 pikselin altındaki yazılar büyütüldü: 14 pikselin altındaki metnin payı yaş görünümünde %49'dan %10'a, deneylerde %57'den %9'a, karşılaştırmada %90'dan %7'ye, kaynakçada %97'den %15'e indi.
+- Düz yazı satırları yaklaşık 75 karakterle sınırlandı (önceki 100-120, kaynakçada 175).
+- Satır ve madde aralıkları artırıldı; soluk yazı rengi koyulaştırıldı.
+- Küçük ekranda üst bilgi tek satıra indi; kuram ailesi süzgeci etkisiz olduğu görünümlerde gizlenir; deney kartlarında etiket ve metin alt alta dizilir.
+- Rozet ve etiketler dar kartlarda alt satıra geçer; yaş şeridindeki dönem adları kırpılmaz.
 
 ## Kuramlar
 
@@ -99,6 +110,9 @@ data/ek-turkiye.js       Yaş dönemlerine göre Türkiye notları
 data/ek-vakalar.js       Uyarlamada eklenen üç vaka
 data/ek-profil.js        Uyarlamada eklenen dört kuram profili
 assets/view-study.js     Çalış bölümü: sorular, kavram kartları, ilerleme
+data/ek-kisaltmalar.js   Kısaltmalar sözlüğü
+assets/view-tools.js     Yazı boyutu denetimi ve atlas içi arama
+assets/prefs.js          Yazı boyutu tercihinin sayfa çizilmeden uygulanması
 ```
 
 İçerik eklemek için ilgili `data/` dosyasına aynı biçimde yeni bir kayıt eklemek yeterlidir; sayfa yeni kaydı tüm görünümlere otomatik olarak yerleştirir.
@@ -107,7 +121,7 @@ Bu kaynak eğitim amaçlıdır ve klinik değerlendirmenin yerini tutmaz.
 
 ## Yazarlar ve lisans
 
-Özgün eser: **Dr. Mehmet Tekden**. Uyarlayan: **Dr. Miraç Barış Usta** (2026).
+Özgün eser: **Dr. Mehmet Tekden**. Uyarlayan: **Dr. Miraç Barış Usta** (2026). Uyarlama ve Kasım 2026 ekleri özgün yazarın izniyle hazırlanmış ve yayımlanmıştır.
 
 Özgün yazarın açık lisans onayı alınana kadar tüm hakları saklıdır; ayrıntılar ve üçüncü taraf içerik (kuramcı portreleri, Gray's Anatomy çizimleri, CDC basamakları) için [LICENSE](LICENSE) dosyasına bakınız.
 
