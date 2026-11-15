@@ -20,6 +20,20 @@ Açmak için `index.html` dosyasını tarayıcıda açmanız yeterlidir (sunucu 
 | **Ders ve sunum** | Yaş dönemi, kuram, karşılaştırma, vaka ve yaşam boyu turu dersleri; 16:9 sunum, konuşmacı notları, otomatik tartışma soruları; klavye (←/→, N, F, Esc) ve kaydırma ile gezinme. Yaş, kuram, karşılaştırma ve vaka ekranlarında "Sun" düğmesi. |
 | **Kaynakça** | 185 doğrulanmış kaynak (DOI: Crossref, PMID: PubMed) ve kuramların temel eserleri. |
 
+## Uyarlamada eklenenler (Kasım 2026)
+
+Sitede turuncu **Ek 2026** etiketiyle gösterilen içerik uyarlamada eklenmiştir (Dr. Miraç Barış Usta); etiketsiz içerik özgün atlasa (Dr. Mehmet Tekden) aittir. Özgün veri dosyalarına dokunulmamış, eklemeler `data/ek-*.js` dosyalarında tutulmuştur.
+
+| Ek | İçerik |
+| --- | --- |
+| **Güncel çalışmalar** | 2016-2026 arasında yayımlanan 23 çalışma: bağlanma meta-analizleri (ilk 20.000 Yabancı Durum uygulaması, anne ve baba duyarlılığı, aktarım boşluğu, ebeveyn zihinselleştirmesi), çok merkezli yinelemeler (ManyBabies 4, yenidoğan taklidi, örtük zihin kuramı, lokum testi), uzun izlemler (Bükreş Erken Müdahale Projesi, Jamaika erken uyarım, bebeklikte ketlenme, orta yaşta Eriksoncu gelişim), ergen beyni (olgunluk farkı, ikili sistemlerin boylamsal sınaması, duyusal-motor/çağrışım ekseni), Baby's First Years nakit desteği çalışması ve 4 yıllık izlemi. Deneyler görünümünde "Ek 2026" süzgeciyle listelenir. |
+| **Üç yeni vaka** | Özgün atlasta vakası olmayan dönemler: 16 yaşta kısıtlayıcı yeme, 32 yaşta erişkin DEHB (çocuğuna tanı konan baba), 52 yaşta bakım yükü ve depresyon. |
+| **Dört kuram profili** | Fonagy ve Gergely (zihinselleştirme), Marcia (kimlik statüleri), mizaç (Thomas ve Chess, Kagan, Rothbart), Kağıtçıbaşı (aile değişimi ve özerk-ilişkisel benlik). |
+| **Türkiye notları** | Yaş görünümünde her dönem için Türkiye'de geliştirilmiş ya da sınanmış araçlar ve yerel veriler: Gelişimi İzleme ve Destekleme Rehberi, Denver II, M-CHAT-R/F İstanbul örneklemi, EPICPAT-T yaygınlık çalışması, puberte yaşları, büyüme referansları, Kağıtçıbaşı'nın çalışmaları. |
+| **Çalış** | Atlasın verisinden üretilen sorular (evre hangi kuramın, bu yaşta hangi evre, CDC basamağı hangi yaşta, bulgu hangi çalışmanın, kuramı destekler mi sorgular mı, kanıt durumu, tanımdan kavrama), 166 kavram kartı ve ilerleme izlemi. İlerleme yalnızca tarayıcıda saklanır. |
+
+Eklenen 40 kaynağın 38'inin künyesi PubMed kayıtlarından üretilmiş, PubMed'de dizinlenmeyen ikisi (Madigan ve ark., 2023; Nisan ve Kohlberg, 1982) Crossref ve yayıncı kaydından doğrulanmıştır. Yöntem ve bulgu özetleri makale özetlerine dayanır. Kuramcı yaşamöyküleri ve kurgusal vinyetler uyarlayanın derlemesidir.
+
 ## Kuramlar
 
 - **Psikanalitik ve nesne ilişkileri:** Freud, Klein, Spitz, Winnicott, Anna Freud, Blos, Kohut, Mahler, Kernberg
@@ -79,6 +93,12 @@ data/beyin.js            Beyin bölgeleri ve olgunlaşma eğrileri
 data/karsilastirma.js    Hazır karşılaştırmalar ve notlar
 data/vakalar-*.js        Eğitim vakaları ve vaka kaynakları
 data/portreler.js        Kuramcı portrelerinin kaynak ve lisans bilgileri
+data/ek-kaynaklar.js     Uyarlamada eklenen kaynaklar (DOI / PMID)
+data/ek-deneyler.js      Uyarlamada eklenen 2016-2026 çalışmaları
+data/ek-turkiye.js       Yaş dönemlerine göre Türkiye notları
+data/ek-vakalar.js       Uyarlamada eklenen üç vaka
+data/ek-profil.js        Uyarlamada eklenen dört kuram profili
+assets/view-study.js     Çalış bölümü: sorular, kavram kartları, ilerleme
 ```
 
 İçerik eklemek için ilgili `data/` dosyasına aynı biçimde yeni bir kayıt eklemek yeterlidir; sayfa yeni kaydı tüm görünümlere otomatik olarak yerleştirir.
@@ -91,4 +111,4 @@ Bu kaynak eğitim amaçlıdır ve klinik değerlendirmenin yerini tutmaz.
 
 Özgün yazarın açık lisans onayı alınana kadar tüm hakları saklıdır; ayrıntılar ve üçüncü taraf içerik (kuramcı portreleri, Gray's Anatomy çizimleri, CDC basamakları) için [LICENSE](LICENSE) dosyasına bakınız.
 
-Önerilen atıf: Tekden M. *Ruhsal Gelişim Atlası*. Uyarlayan: Usta MB. 2026. https://hypothermia15.github.io/gelisim/
+Önerilen atıf: Tekden M. *Ruhsal Gelişim Atlası*. Uyarlayan: Usta MB. 2026. https://miracbarisusta.com/ruhsal-gelisim-atlasi/

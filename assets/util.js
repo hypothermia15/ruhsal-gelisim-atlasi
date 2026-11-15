@@ -14,9 +14,11 @@
   });
   A.ages.forEach(function (a) {
     var x = A.ageExtras && A.ageExtras[a.id];
-    if (x) { a.msx = x.msx; a.dx = x.dx; a.tools = x.tools; }
+    if (x) { a.msx = x.msx; a.dx = x.dx; a.tools = x.tools; a.tr = x.tr; }
     a.cdc = (A.cdc || []).filter(function (c) { return c.band === a.id; });
   });
+
+  if (A.cases) A.cases.sort(function (a, b) { return a.age - b.age; });
 
   var famById = {}, famOrder = {}, thById = {}, expById = {};
   A.families.forEach(function (f, i) { famById[f.id] = f; famOrder[f.id] = i; });
@@ -73,7 +75,9 @@
   }
   function famColor(id) { return famById[id] ? famById[id].color : "var(--muted)"; }
   function statusPill(st) { return '<span class="status s' + st + '">' + esc(A.status[st].label) + "</span>"; }
-  function kindPill(e) { return e.kind === "mudahale" ? '<span class="status sk">Müdahale</span>' : ""; }
+  /* "Ek 2026": uyarlamada eklenen içerik (Usta, 2026); özgün atlastan ayırt etmek için */
+  function ekPill(x) { return x && x.ek ? '<span class="status sek" title="Uyarlamada eklendi (Usta, 2026)">Ek 2026</span>' : ""; }
+  function kindPill(e) { return (e.kind === "mudahale" ? '<span class="status sk">Müdahale</span>' : "") + ekPill(e); }
   function meter(n) {
     return '<span class="meter" aria-label="Kanıt düzeyi ' + n + '/4">' + [1, 2, 3, 4].map(function (k) { return "<i" + (k <= n ? ' class="on"' : "") + "></i>"; }).join("") + "</span>";
   }
@@ -127,7 +131,7 @@
   }
 
   A.U = {
-    famIcon: famIcon, roman: roman,
+    famIcon: famIcon, roman: roman, ekPill: ekPill,
     $: function (id) { return document.getElementById(id); },
     esc: esc, num: num, fmtAge: fmtAge, fmtRange: fmtRange, xPos: xPos, ageAt: ageAt, bandOf: bandOf, bandAge: bandAge,
     overlap: overlap, pack: pack, famColor: famColor, statusPill: statusPill, kindPill: kindPill, meter: meter,

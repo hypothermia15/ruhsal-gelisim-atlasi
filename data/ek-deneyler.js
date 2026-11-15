@@ -1,0 +1,141 @@
+/* Uyarlamada eklenen çalışmalar (Usta, 2026): 2016-2026 arasında yayımlanan meta-analizler, çok merkezli
+   replikasyonlar ve uzun izlemler. Her kayıt ek: true ile işaretlidir; özgün deney listesine dokunulmamıştır.
+   Yöntem ve bulgu özetleri makalelerin PubMed özetlerinden (Madigan ve ark., 2023 için yayıncı özetinden) hazırlanmıştır. */
+(function () {
+  var A = window.ATLAS;
+  var EK = [
+  { id: "madigan23", year: 2023, title: "İlk 20.000 Yabancı Durum uygulaması", who: "Madigan, Fearon, van IJzendoorn ve ark.", age: "12-18 ay", band: "a3",
+    method: "Yabancı Durum Yöntemi'nin kullanıldığı 285'ten fazla çalışma ve 20.720 çocuk-ebeveyn çifti meta-analizle birleştirildi; bağlanma örüntülerinin dünya genelindeki dağılımı ve bu dağılımı değiştiren etkenler incelendi.",
+    find: "Güvenli bağlanma %51,6, kaçıngan %14,7, dirençli %10,2, dağınık %23,5 bulundu. Anne ve babayla bağlanma dağılımı farklı değildi. Sosyodemografik risk kaçıngan ve dağınık bağlanmayı; ebeveyn psikopatolojisi, kötü muamele ve kurum ya da koruyucu aileden evlat edinilme dağınık bağlanmayı artırıyordu.",
+    sup: ["bowlby"], ch: [], st: 1,
+    note: "Dağılım Kuzey Amerika ile diğer bölgeler arasında farklılaşıyordu ve yıllar içinde kaçıngan bağlanma azalmıştı. Ainsworth'un Baltimore örneklemine dayanan 'üçte iki güvenli' kabulünü güncelleyen çalışmadır.", refs: ["madigan23"] },
+  { id: "madigan24", year: 2024, title: "Anne ve baba duyarlılığı ile bağlanma güvenliği", who: "Madigan, Deneault, Duschinsky ve ark.", age: "Bebeklik ve erken çocukluk", band: "a2",
+    method: "Bakımveren duyarlılığı ile çocuk-bakımveren bağlanması arasındaki ilişkiyi inceleyen 174 çalışma (230 etki büyüklüğü, 22.914 çift) meta-analizle birleştirildi; anne ve baba ayrı ayrı incelendi.",
+    find: "Duyarlılık ile bağlanma güvenliği arasındaki ilişki r=0,25 idi. Anne duyarlılığı (r=0,26) ile baba duyarlılığı (r=0,21) benzer büyüklükte ilişki gösterdi. Anne duyarlılığı kaçıngan, dirençli ve dağınık bağlanmanın üçüyle de olumsuz yönde ilişkiliydi.",
+    sup: ["bowlby"], ch: [], st: 1,
+    note: "De Wolff ve van IJzendoorn'un (1997) meta-analizini güncelleyen çalışmadır. İlişki tutarlı ama orta büyüklüktedir; etki büyüklüğü ölçüm aracına ve gözlem süresine göre değişir. Duyarlılık bağlanmanın tek belirleyicisi değildir.", refs: ["madigan24"] },
+  { id: "verhage16", year: 2016, title: "Bağlanmanın kuşaklararası aktarımı: aktarım boşluğu", who: "Verhage, Schuengel, Madigan ve ark.", age: "Ebeveyn ve bebek", band: "a3",
+    method: "Bakımverenin bağlanma temsilleri ile çocuğun bağlanması arasındaki ilişkiyi inceleyen 95 örneklem (4819 kişi) birleştirildi; duyarlılığın aracı rolü yol analiziyle sınandı.",
+    find: "Kuşaklararası aktarım doğrulandı (güvenli-özerk temsil için r=0,31; çözümlenmemiş temsil için r=0,21), ancak etki büyüklükleri yirmi yıl önceki meta-analizdekinden (r=0,47 ve 0,31) belirgin biçimde küçüktü. Aktarım bakımveren duyarlılığıyla tam olarak açıklanamadı.",
+    sup: ["bowlby", "fonagy"], ch: [], st: 1,
+    note: "Yayımlanmamış ve daha yeni çalışmalarda etki daha küçüktür. 'Aktarım boşluğu' daralmış ama kapanmamıştır; ebeveyn zihinselleştirmesi bu boşluğu açıklamaya aday mekanizmalardan biridir.", refs: ["verhage16"] },
+  { id: "zeegers17", year: 2017, title: "Ebeveyn zihinselleştirmesi, duyarlılık ve bağlanma", who: "Zeegers, Colonnesi, Stams ve Meins", age: "Bebeklik", band: "a2",
+    method: "Ebeveyn zihinselleştirmesi ile bebek bağlanması (20 etki büyüklüğü, 974 kişi), duyarlılık ile bağlanma (82 etki büyüklüğü, 6664 kişi) ve zihinselleştirme ile duyarlılık (24 etki büyüklüğü, 2029 kişi) arasındaki ilişkiler çok düzeyli meta-analizle incelendi.",
+    find: "Ebeveyn zihinselleştirmesi bağlanma güvenliğiyle r=0,30, duyarlılık bağlanmayla r=0,25 ilişkiliydi. Duyarlılık kontrol edildiğinde zihinselleştirmenin ilişkisi sürdü (r=0,24). İki değişken birlikte bağlanma güvenliğindeki varyansın %12'sini açıkladı.",
+    sup: ["fonagy", "bowlby"], ch: [], st: 1,
+    note: "Zihinselleştirmenin duyarlılıktan bağımsız bir katkısı olduğunu gösterir; ancak açıklanan varyans sınırlıdır ve çalışmaların çoğu korelasyoneldir.", refs: ["zeegers17"] },
+  { id: "dagan24", year: 2024, title: "Mizaç ve anne-baba bağlanma ağı", who: "Dagan, Schuengel, Verhage ve ark.", age: "Bebeklik ve erken çocukluk", band: "a3",
+    method: "Ön kayıtlı bireysel katılımcı verisi meta-analizi: yedi çalışmadan 872 çocuğun olumsuz duygulanım düzeyi ile anne ve babayla kurduğu güvenli, kaçıngan, dirençli ve dağınık bağlanma ilişkilerinin sayısı incelendi.",
+    find: "Olumsuz duygulanımı yüksek çocukların güvenli bağlanma ilişkisi sayısı biraz daha az, dirençli bağlanma ilişkisi sayısı biraz daha fazlaydı; kaçıngan ve dağınık bağlanmayla ilişki saptanmadı.",
+    sup: ["mizac"], ch: [], st: 2,
+    note: "Etki küçüktür. Mizacın bağlanma örüntüsünü belirlemediğini, ama dirençli bağlanma riskine küçük bir katkı yapabildiğini düşündürür. Örneklem ağırlıkla Batılı ve beyaz ailelerden oluşur.", refs: ["dagan24"] },
+  { id: "king23", year: 2023, title: "Bükreş Erken Müdahale Projesi: yirmi yılın sentezi", who: "King, Guyon-Harris, Valadez ve ark.", age: "6-31 ay → 16-18 yaş", band: "a4", kind: "mudahale",
+    method: "Bükreş'te kurum bakımındaki 136 çocuk 6-31 aylıkken koruyucu aileye ya da olağan bakıma randomize edilmişti. 30, 42 ve 54. aylar ile 8, 12 ve 16-18 yaşlardaki zekâ, fiziksel büyüme, EEG ve psikopatoloji ölçümleri (7088 gözlem) tedavi amacına göre birlikte çözümlendi.",
+    find: "Koruyucu aileye yerleştirilen çocukların bilişsel ve fiziksel sonuçları daha iyi, psikopatolojileri daha hafifti; etki büyüklüğü gelişim boyunca sabit kaldı. Müdahaleden en çok zekâ bölümü ve bağlanma ile toplumsal ilişki kurma bozuklukları etkilendi.",
+    sup: ["bowlby", "spitz", "winnicott"], ch: [], st: 1,
+    note: "Kurum bakımına karşı aile bakımını sınayan ilk randomize çalışmanın yaklaşık yirmi yıllık izlemidir. Örneklem tek ülkeden ve küçüktür; etik nedenlerle yinelenmesi güçtür.", refs: ["king23"] },
+  { id: "bfy22", year: 2022, title: "Baby's First Years: nakit desteği ve bebek beyni", who: "Troller-Renfree ve ark. (2022, 2026); Hart ve ark. (2024)", age: "Doğum → 4 yaş", band: "a2", kind: "mudahale",
+    method: "ABD'de düşük gelirli 1000 anne doğumdan kısa süre sonra ayda 333 dolar ya da 20 dolar koşulsuz nakit desteğine randomize edildi. Bebeklerin dinlenim EEG'si 1 yaşta (435 bebek) ve 4 yaşta ölçüldü; annelerin bildirdiği dil ve sosyal-duygusal gelişim her yıl değerlendirildi.",
+    find: "Bir yaşta yüksek destek grubunda yüksek frekans bantlarında EEG gücü daha fazlaydı. Dört yaşta ön kayıtlı birincil ve ikincil EEG sonuçlarında gruplar arasında fark bulunmadı; keşif amaçlı çözümlemede alfa gücü daha yüksekti. Annelerin bildirdiği dil ve sosyal-duygusal gelişimde ilk üç yılda saptanabilir bir etki yoktu.",
+    sup: [], ch: [], st: 2,
+    note: "Gelir ile beyin gelişimi arasındaki ilişkinin nedenselliğini sınayan ilk randomize çalışmadır. İlk bulgunun anlamlılığı çözümleme yöntemine göre değişiyordu ve izlemde ön kayıtlı sonuçlar doğrulanmadı; yoksulluğun etkisini tek başına gelir aktarımıyla açıklamak için kanıt yetersizdir.", refs: ["troller22", "hart24", "troller26"] },
+  { id: "lucca25", year: 2025, title: "ManyBabies 4: yardım edeni tercih etme yinelenemedi", who: "Lucca, Yuen, Wang ve ark. (37 laboratuvar)", age: "5,5-10,5 ay", band: "a2",
+    method: "Hamlin ve arkadaşlarının (2007) tepe paradigması ön kayıtlı ve standartlaştırılmış biçimde beş kıtadaki 37 laboratuvarda yinelendi; 1018 bebek test edildi, 567 bebeğin verisi çözümlendi.",
+    find: "Bebeklerin %49,34'ü yardım eden karakteri seçti; bu oran şans düzeyinden farklı değildi. Cansız nesnenin yukarı itildiği sosyal olmayan koşulda oran %55,85 idi ve o da şans düzeyinden ayrılmadı.",
+    sup: [], ch: [], st: 1,
+    note: "Hamlin (2007) bulgusu, ahlaki değerlendirmenin ilk yılda ortaya çıktığının kanıtı olarak sunulmuştu. Bu çalışma, tepe paradigmasında etkinin sanılandan zayıf olduğunu, olmadığını ya da daha geç geliştiğini düşündürür; başka paradigmalar için sonuç vermez.", refs: ["lucca25"] },
+  { id: "oostenbroek16", year: 2016, title: "Yenidoğan taklidi: kapsamlı boylamsal sınama", who: "Oostenbroek, Suddendorf, Nielsen ve ark.", age: "1-9 hafta", band: "a0",
+    method: "106 bebeğe 1, 3, 6 ve 9. haftalarda dokuz sosyal ve iki sosyal olmayan model gösterildi; bebeğin eşleşen ve eşleşmeyen modellere verdiği yanıtlar karşılaştırıldı.",
+    find: "Bebekler hiçbir modeli taklit etmedi: bir hareketi, o hareketin gösterildiği koşulda kontrol koşullarındakinden daha sık yapmadılar. Önceki olumlu bulgular verinin sınırlı kesitlerinde yeniden elde edilebildi, ama bütün veride kayboldu.",
+    sup: ["piaget"], ch: ["stern"], st: 2,
+    note: "Meltzoff ve Moore'un (1977) bulgusuna dayanan 'doğuştan taklit' kabulünü sorgular. Meltzoff ve arkadaşları yöntemi eleştirmiş, tartışma sürmüştür; taklidin ilk yılda öğrenmeyle geliştiği görüşü güç kazanmıştır.", refs: ["oostenbroek16"] },
+  { id: "kulke18", year: 2018, title: "Örtük zihin kuramı sağlam bir olgu mu?", who: "Kulke, von Duhn, Schneider ve Rakoczy", age: "Örtük yanlış inanç görevleri", band: "a4",
+    method: "Beklentisel bakış ölçümüne dayanan dört etkili örtük yanlış inanç görevi, özgün uyaran ve yöntemlerle, ön kayıtlı ve büyük örneklemli bir çalışmada yinelendi.",
+    find: "Dört paradigmadan yalnızca biri güvenilir biçimde yinelendi; karıştırıcı etkenler giderildiğinde o da yinelenemedi. Paradigmalar arasında korelasyon yoktu.",
+    sup: ["fonagy"], ch: [], st: 1,
+    note: "Onishi ve Baillargeon'un (2005) açtığı 'bebeklikte örtük zihin kuramı' yazınının dayandığı görevlerin güvenirliğini sorgular. Açık yanlış inanç görevlerinde 4 yaş dolayındaki geçiş bulgusu bu tartışmadan etkilenmez; bu, temsili zihinselleştirmenin okul öncesinde kazanıldığı görüşüyle uyumludur.", refs: ["kulke18"] },
+  { id: "watts18", year: 2018, title: "Lokum testine yeniden bakış", who: "Watts, Duncan ve Quan", age: "4,5 yaş → 15 yaş", band: "a5",
+    method: "Shoda, Mischel ve Peake'in (1990) çalışması, annesi üniversite mezunu olmayan çocuklara odaklanan daha büyük ve çeşitli bir örneklemde kavramsal olarak yinelendi; aile geçmişi, erken bilişsel beceri ve ev ortamı kontrol edildi.",
+    find: "Dört yaşta beklenen her ek dakika, 15 yaşta başarıda yaklaşık onda bir standart sapmalık artışı öngördü; bu ilişki özgün çalışmalardakinin yarısı kadardı ve kontroller eklendiğinde üçte iki oranında küçüldü. Davranış sonuçlarıyla ilişki çok daha küçüktü ve çoğu kez anlamlı değildi.",
+    sup: [], ch: ["mizac"], st: 1,
+    note: "Hazzı erteleme süresinin tek başına güçlü bir yordayıcı olmadığını, büyük ölçüde aile ortamını ve erken bilişsel beceriyi yansıttığını düşündürür. Öz-denetimin önemini değil, tek bir laboratuvar ölçümünün öngörü gücünü sorgular.", refs: ["watts18"] },
+  { id: "whitehouse21", year: 2021, title: "Otizmin erken belirtilerinde önleyici müdahale (iBASIS-VIPP)", who: "Whitehouse, Varcin, Pillar ve ark.", age: "9-14 ay → 3 yaş", band: "a2", kind: "mudahale",
+    method: "Avustralya'da iki merkezde, otizmle ilişkili erken davranışlar gösteren 9-14 aylık 104 bebek, beş ay süren 10 oturumluk video geribildirimli ebeveyn aracılı müdahaleye (iBASIS-VIPP) ya da olağan bakıma randomize edildi; değerlendirenler gruba kördü.",
+    find: "Müdahale otizm belirti şiddetini azalttı. Üç yaşta otizm tanısı alanların oranı müdahale grubunda %6,7 (45 çocuktan 3'ü), olağan bakım grubunda %20,5 (44 çocuktan 9'u) idi; tedavi edilmesi gereken sayı 7,2 bulundu. Ebeveyn yanıtlayıcılığı ve dil sonuçları da iyileşti.",
+    sup: ["sroufe"], ch: [], st: 2,
+    note: "Tanı öncesi başlayan bir müdahalenin tanı sonucunu değiştirdiğini gösteren ilk randomize çalışmadır. Örneklem küçüktür, güven aralıkları geniştir ve bulgunun bağımsız örneklemde yinelenmesi gerekir.", refs: ["whitehouse21"] },
+  { id: "jones23", year: 2023, title: "Göz izleme ile sosyal görsel ilginin ölçümü ve otizm tanısı", who: "Jones, Klaiman, Richardson ve ark.", age: "16-30 ay", band: "a4",
+    method: "ABD'de altı uzman merkeze yönlendirilen 16-30 aylık 499 çocukta, otomatik bir göz izleme aygıtıyla sosyal görsel ilgi ölçüldü; sonuç, ölçüme kör uzmanların standart protokolle koyduğu klinik tanıyla karşılaştırıldı.",
+    find: "Ölçüm 475 çocukta (%95,2) tamamlandı. Uzman tanısına göre duyarlılık %71,0, özgüllük %80,7 idi; tanının kesin olduğu 335 çocukta duyarlılık %78,0, özgüllük %85,4 bulundu. Ölçüm sosyal güçlük düzeyiyle (r=−0,75) ve sözel beceriyle (r=0,65) ilişkiliydi.",
+    sup: ["tomasello"], ch: [], st: 2,
+    note: "Örneklem uzman kliniğe yönlendirilen çocuklardan oluşur; toplum taramasındaki başarımı bilinmez. Yazarlar testin rutin uygulamadaki yerinin ayrıca değerlendirilmesi gerektiğini belirtir. Ortak dikkat ve sosyal yönelimin erken ölçülebilirliğini destekler.", refs: ["jones23"] },
+  { id: "tang20", year: 2020, title: "Bebeklikte davranışsal ketlenme: otuz yıl sonrası", who: "Tang, Crawford, Morales, Degnan, Pine ve Fox", age: "14 ay → 26 yaş", band: "a3",
+    method: "165 bebekte davranışsal ketlenme 14. ayda gözlemle ölçüldü. 15 yaşta hata izlemeyle ilişkili beyin potansiyelleri kaydedildi; 26 yaşta kişilik, psikopatoloji ve toplumsal işlevsellik öz-bildirimle değerlendirildi.",
+    find: "Ketlenmesi yüksek bebekler 26 yaşta daha içe dönük ve çekingendi (β=0,34), arkadaş ve aile ilişkilerinde işlevsellikleri daha düşüktü (β=−0,23). Ketlenme içe yönelim psikopatolojisi için özgül bir risk etkeniydi (β=0,20). Ergenlikte hata izlemesi yüksek olanlarda bu risk daha belirgindi.",
+    sup: ["mizac"], ch: [], st: 2,
+    note: "Mizacın gözlemle ölçüldüğü ve yetişkinliğe uzanan az sayıdaki çalışmadan biridir. Örneklem küçüktür ve izlemde kayıp vardır; etki büyüklükleri orta düzeydedir.", refs: ["tang20"] },
+  { id: "colich20", year: 2020, title: "Tehdit ve yoksunluk sonrası biyolojik yaşlanma", who: "Colich, Rosen, Williams ve McLaughlin", age: "Çocukluk ve ergenlik", band: "a7",
+    method: "Erken yaşam güçlüğü ile puberte zamanlaması ve hücresel yaşlanma arasındaki ilişkiyi inceleyen 54 çalışma (116.010 kişi) meta-analizle birleştirildi; kortikal kalınlık ve amigdala-prefrontal bağlantısallığına ilişkin 25 çalışma sistematik olarak derlendi.",
+    find: "Tehdit içeren güçlükler (ör. şiddete maruz kalma) hızlanmış puberte ve hızlanmış hücresel yaşlanmayla ilişkiliydi; yoksunluk (ör. ihmal, kurum bakımı) ve düşük sosyoekonomik düzey ilişkili değildi. Tehdit ventromedial prefrontal kortekste incelmeyle ilişkiliydi.",
+    sup: ["yasamoykusu"], ch: [], st: 1,
+    note: "Yaşam öyküsü kuramının 'güçlük gelişimi hızlandırır' öngörüsünü yalnızca tehdit için destekler; kuramın güçlük türlerini ayırmayan biçimini sorgular. Çalışmaların çoğu gözlemseldir.", refs: ["colich20"] },
+  { id: "sydnor23", year: 2023, title: "Duyusal-motor alanlardan çağrışım alanlarına olgunlaşma ekseni", who: "Sydnor, Larsen, Seidlitz ve ark.", age: "8-23 yaş", band: "a8",
+    method: "8-23 yaşındaki 1033 gencin dinlenim durumu fMRI verisinde içsel kortikal etkinliğin genliği bölge bölge incelendi ve korteks içi miyelin olgunlaşmasıyla ilişkilendirildi.",
+    find: "İçsel etkinlik genliğindeki azalma bölgeden bölgeye farklı yaşlarda başlıyordu ve miyelin olgunlaşmasıyla eşleşiyordu. 8-18 yaş arasında gelişim örüntüsü duyusal-motor alanlardan çağrışım alanlarına uzanan hiyerarşik bir eksen boyunca düzenlenmişti; mahalle koşullarıyla ilişkiler de en çok orta ergenlikte bu eksen boyunca ayrışıyordu.",
+    sup: ["ikilisistem"], ch: [], st: 2,
+    note: "Çağrışım korteksinin ergenlikte uzamış bir plastisite dönemi yaşadığı görüşüyle uyumludur. Kesitsel bir örnekleme dayanır; fMRI genliği plastisitenin dolaylı bir göstergesidir.", refs: ["sydnor23"] },
+  { id: "icenogle19", year: 2019, title: "Olgunluk farkı: bilişsel kapasite erken, psikososyal olgunluk geç", who: "Icenogle, Steinberg, Duell ve ark.", age: "10-30 yaş", band: "a9",
+    method: "11 ülkeden 10-30 yaşındaki 5227 kişide mantıksal düşünmenin dayandığı bilişsel kapasite ile duygusal, heyecan verici ya da riskli uyaranlar karşısında kendini tutabilmeyi kapsayan psikososyal olgunluğun yaş örüntüleri ölçüldü.",
+    find: "Bilişsel kapasite 16 yaş dolayında yetişkin düzeyine ulaştı; psikososyal olgunluk 18 yaşından sonra yetişkin düzeyine geldi.",
+    sup: ["ikilisistem"], ch: [], st: 1,
+    note: "Kesitsel bir çalışmadır. Yazarlar, bilişsel kapasitenin ağır bastığı kararlar ile psikososyal olgunluğun belirleyici olduğu kararlar için farklı yaş sınırlarının savunulabileceğini öne sürer; ergenin onam kapasitesi tartışmalarında sık anılır.", refs: ["icenogle19"] },
+  { id: "lozanowun25", year: 2025, title: "İkili sistemler: kişi içi dengesizliğin boylamsal sınaması", who: "Lozano Wun, Klein, Collins ve Luciana", age: "9-29 yaş", band: "a8",
+    method: "9-29 yaşındaki 166 kişi hızlandırılmış boylamsal desenle, iki yılda bir olmak üzere en çok beş kez değerlendirildi; öz-bildirimle ödül duyarlılığı ve laboratuvar görevleriyle yürütücü işlevler ölçüldü, iki sistem arasındaki kişi içi fark doğrudan hesaplandı.",
+    find: "Ödül duyarlılığı da yürütücü işlevler de erken ergenlikte hızla arttı ve erken yetişkinlikte platoya ulaştı. Ödül duyarlılığının yürütücü denetime göre yüksek olduğu dengesizlik dönemi erken ergenlikte saptandı; çoğu ergende orta-geç ergenlikte bu fark kapanıyordu, ancak bazı bireyler bu ortalama eğilimden ayrılıyordu.",
+    sup: ["ikilisistem"], ch: [], st: 2,
+    note: "Modelin çekirdek varsayımını kişi içinde sınayan az sayıdaki çalışmadan biridir. Örneklem küçük, ağırlıkla beyaz ve orta sınıftır; dengesizliğin risk alma davranışını öngörüp öngörmediği bu çalışmada sınanmamıştır.", refs: ["lozanowun25"] },
+  { id: "orben22", year: 2022, title: "Sosyal medyaya gelişimsel duyarlılık pencereleri", who: "Orben, Przybylski, Blakemore ve Kievit", age: "10-21 yaş", band: "a8",
+    method: "İngiltere'den iki veri setinde 10-80 yaşındaki 84.011 kişide sosyal medya kullanımı ile yaşam doyumu arasındaki kesitsel ilişki, 10-21 yaşındaki 17.409 kişide ise bir yıl arayla boylamsal ilişki incelendi.",
+    find: "Kesitsel ilişki en olumsuz erken ergenlikteydi. Boylamsal çözümlemede yüksek kullanımın bir yıl sonraki yaşam doyumunu düşürdüğü dönemler kızlarda 11-13, erkeklerde 14-15 yaşlar ve her iki cinsiyette 19 yaştı.",
+    sup: [], ch: [], st: 2,
+    note: "Kullanım öz-bildirime dayanır ve etkiler küçüktür. Pencerelerin kızlarda daha erken olması puberte zamanlamasıyla uyumludur; 19 yaştaki pencere evden ayrılma gibi toplumsal geçişlere bağlanmıştır. Ayrıntı için sitedeki 'Dijital Çağda Gençlik' rehberine bakılabilir.", refs: ["orben22"] },
+  { id: "walker22", year: 2022, title: "Jamaika erken uyarım çalışması: 31 yaş izlemi", who: "Walker, Chang, Wright, Pinto, Heckman ve Grantham-McGregor", age: "9-24 ay → 31 yaş", band: "a3", kind: "mudahale",
+    method: "Jamaika'da büyüme geriliği olan 9-24 aylık çocuklar iki yıl süreyle beslenme desteği, psikososyal uyarım, ikisi birden ya da müdahalesiz izleme randomize edilmişti. 127 katılımcının 95'i ortalama 31,8 yaşında yeniden değerlendirildi.",
+    find: "Uyarım alanların zekâ bölümü (Hedges g=0,57) ve bilişsel esnekliği (g=0,61) müdahale almayanlardan yüksekti; depresif belirtileri daha azdı. Değerlendirilen 33 sonucun 18'inde anlamlı yarar vardı. Uyarım alanların zekâ bölümü, büyüme geriliği olmayan karşılaştırma grubundan yine de düşüktü.",
+    sup: ["vygotsky", "kagitcibasi"], ch: [], st: 2,
+    note: "Düşük ve orta gelirli bir ülkede erken çocukluk müdahalesinin yetişkinlikteki etkisini gösteren ender randomize çalışmalardandır. Örneklem küçüktür. Müdahale, evde anneyle oyun ve etkileşimi destekleyen haftalık ziyaretlerden oluşuyordu.", refs: ["walker22"] },
+  { id: "malone16", year: 2016, title: "Orta yaşta Eriksoncu gelişim ve ileri yaşta biliş", who: "Malone, Liu, Vaillant, Rentz ve Waldinger", age: "30-47 yaş → 75-85 yaş", band: "a12",
+    method: "Yetişkin Gelişimi Çalışması'ndan 159 erkeğin 30-47 yaşlarındaki görüşme anlatıları Eriksoncu psikososyal gelişim açısından kodlandı; 75-85 yaşlarında nöropsikolojik test ve Geriatrik Depresyon Ölçeği uygulandı.",
+    find: "Orta yaşta psikososyal gelişimi daha ileri olanların otuz-kırk yıl sonra genel bilişsel işlevleri ve yürütücü işlevleri daha iyi, depresyon düzeyleri daha düşüktü; bellekle ilişki yoktu. İleri yaş depresyonu bu ilişkiye aracılık ediyordu. Sonuçlar eğitim düzeyi ve ergenlikteki zekâ için düzeltilmişti.",
+    sup: ["erikson", "vaillant"], ch: [], st: 2,
+    note: "Örneklem yalnızca erkeklerden oluşur ve küçüktür; gözlemsel bir çalışmadır. Üretkenlik evresinin yalnızca ruhsal değil bilişsel yaşlanmayla da ilişkili olabileceğini düşündürür.", refs: ["malone16"] },
+  { id: "carstensen20", year: 2020, title: "Pandemide yaşın duygusal üstünlüğü", who: "Carstensen, Shavit ve Barnes", age: "18-76 yaş", band: "a13",
+    method: "COVID-19 pandemisinin ABD'de hızla yayıldığı dönemde 18-76 yaşındaki 945 kişilik temsili bir örneklemde olumlu ve olumsuz duyguların sıklığı ve yoğunluğu, algılanan bulaş riski, kişilik ve sağlık özellikleriyle birlikte ölçüldü.",
+    find: "Yaş ilerledikçe duygusal iyi oluş daha yüksekti; bu ilişki algılanan risk ve diğer değişkenler kontrol edildiğinde de sürdü.",
+    sup: ["carstensen"], ch: [], st: 2,
+    note: "Yaşlıların duygusal üstünlüğünün yalnızca stresten kaçınabilmeye bağlı olmadığını, kaçınılamayan uzun süreli bir tehdit altında da sürdüğünü gösterir. Kesitseldir ve çevrimiçi yanıtlayabilen yetişkinleri kapsar.", refs: ["carstensen20"] },
+  { id: "ertem18", year: 2018, title: "Dört ülkede 0-3 yaş gelişim basamakları", who: "Ertem, Krishnamurthy, Mulaudzi ve ark.", age: "0-42 ay", band: "a3",
+    method: "Arjantin, Hindistan, Güney Afrika ve Türkiye'de 22 sağlık kuruluşunda 0-42 aylık 10.246 çocuk Gelişimi İzleme ve Destekleme Rehberi ile değerlendirildi; düşük doğum ağırlığı, kronik hastalık ya da yetersiz beslenmesi olmayan 4949 çocuğun sağlıklı alt örnekleminde 106 basamağın kazanılma yaşı hesaplandı.",
+    find: "Basamakların ortanca kazanılma yaşı 106 basamağın 102'sinde (%96) kız ve erkeklerde, 81'inde (%76) dört ülkede eşdeğerdi. Oyun basamaklarının tümü ve kaba motor basamakların %88'i ülkeler arasında eşdeğerken, öz bakım basamaklarının yalnızca %22'si eşdeğerdi.",
+    sup: ["gesell", "kagitcibasi"], ch: [], st: 1,
+    note: "Sağlıklı çocuklarda erken gelişimin büyük ölçüde evrensel olduğunu, kültürün en çok öz bakım gibi çocuk yetiştirme uygulamalarına bağlı alanlarda fark yarattığını gösterir. Türkiye'de geliştirilen bir araca dayanır; kesitseldir.", refs: ["ertem18"] }
+  ];
+
+  var bandById = {};
+  A.ages.forEach(function (a) { bandById[a.id] = a; });
+  var thById = {};
+  A.theories.forEach(function (t) { thById[t.id] = t; });
+  A.expRefs = A.expRefs || {};
+  EK.forEach(function (e) {
+    e.ek = true;
+    A.experiments.push(e);
+    A.expRefs[e.id] = e.refs;
+    var b = bandById[e.band];
+    if (b && b.exps.indexOf(e.id) < 0) b.exps.push(e.id);
+    e.sup.concat(e.ch).forEach(function (tid) {
+      var t = thById[tid];
+      if (t && t.exps.indexOf(e.id) < 0) t.exps.push(e.id);
+    });
+  });
+  A.ekExps = EK.map(function (e) { return e.id; });
+})();

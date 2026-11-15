@@ -6,6 +6,11 @@ Uyarlayan:   Dr. Miraç Barış Usta (2026)
 Telif hakkı özgün eser için Dr. Mehmet Tekden'e, uyarlamadaki değişiklikler
 (görsel tasarım düzenlemeleri ve eklemeler) için Dr. Miraç Barış Usta'ya aittir.
 
+Uyarlamada eklenen içerik sitede "Ek 2026" etiketiyle gösterilir ve data/ek-*.js
+ile assets/view-study.js dosyalarında tutulur: 2016-2026 çalışmaları, üç vaka,
+dört kuram profili, Türkiye notları ve "Çalış" bölümü. Etiketsiz içerik özgün
+esere aittir.
+
 Kullanım koşulları
 ------------------
 Özgün yazarın açık lisans onayı alınana kadar tüm hakları saklıdır. İçerik
@@ -18,7 +23,7 @@ https://creativecommons.org/licenses/by-nc/4.0/deed.tr)
 
 Önerilen atıf:
   Tekden M. Ruhsal Gelişim Atlası. Uyarlayan: Usta MB. 2026.
-  https://hypothermia15.github.io/gelisim/
+  https://miracbarisusta.com/ruhsal-gelisim-atlasi/
 
 Üçüncü taraf içerik
 -------------------

@@ -60,7 +60,7 @@
       var b = band(c);
       return '<button type="button" class="case-card" role="option" data-case="' + c.id + '" aria-selected="' + (c.id === S.id) + '">' +
         '<span class="cc-n">' + U.roman(i + 1) + '</span><span class="cc-age">' + esc(c.ageLabel) + '</span><span class="cc-t">' + esc(shortTitle(c)) + "</span>" +
-        '<span class="cc-b">' + esc(b ? b.name : "") + "</span></button>";
+        '<span class="cc-b">' + esc(b ? b.name : "") + "</span>" + (c.ek ? U.ekPill(c) : "") + "</button>";
     }).join("") + "</div>";
   }
   function stepsHtml(c, n) {
@@ -125,12 +125,13 @@
     var c = byId[S.id] || CASES[0];
     if (!c) { wrap.innerHTML = '<p class="empty">Vaka bulunamadı.</p>'; return; }
     var i = CASES.indexOf(c), b = band(c), n = opened(c);
+    if (A.seen) A.seen("case", c.id);
     var stepsDone = n > c.steps.length;
     var draft = S.draft[c.id] || "";
     var head = '<header class="cf-head"><div class="cf-kicker"><span>Vaka ' + U.roman(i + 1) + "</span><span>" + esc(c.ageLabel) + "</span>" +
       (b ? '<button type="button" class="linkish" data-goage="' + b.id + '">' + esc(b.name) + " · " + esc(b.range) + " →</button>" : "") + "</div>" +
       "<h2>" + esc(c.title) + '</h2><p class="cf-ask">' + esc(c.ask) + "</p>" +
-      '<div class="tags">' + c.tags.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + '<span class="tag rare">Eğitim amaçlı kurgusal vaka</span></div>' +
+      '<div class="tags">' + c.tags.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + '<span class="tag rare">Eğitim amaçlı kurgusal vaka</span>' + (c.ek ? U.ekPill(c) : "") + "</div>" +
       '<div class="cf-actions"><div class="seg" role="group" aria-label="Okuma kipi"><button type="button" data-mode="adim" aria-pressed="' + (S.mode === "adim") + '">Adım adım</button><button type="button" data-mode="tam" aria-pressed="' + (S.mode === "tam") + '">Tümünü göster</button></div>' +
       '<button type="button" class="btn" id="caseSun">▶ Vakayı sun</button>' +
       (S.mode === "adim" && n > 1 ? '<button type="button" class="btn ghost" id="caseReset">Baştan başla</button>' : "") + "</div></header>";

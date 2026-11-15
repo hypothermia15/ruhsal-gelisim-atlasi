@@ -34,6 +34,7 @@
       <a href="#beyin" class="tab" role="tab" data-view="beyin">Beyin haritası</a>
       <a href="#cizelge" class="tab" role="tab" data-view="cizelge">Çizelge</a>
       <a href="#deneyler" class="tab" role="tab" data-view="deneyler">Deneyler</a>
+      <a href="#calis" class="tab" role="tab" data-view="calis">Çalış</a>
       <a href="#ders" class="tab" role="tab" data-view="ders">Ders ve sunum</a>
       <a href="#kaynakca" class="tab" role="tab" data-view="kaynakca">Kaynakça</a>
     </div></div>
@@ -90,6 +91,11 @@
     <div id="expList" class="exp-grid"></div>
   </section>
 
+  <section id="view-calis" class="view" aria-label="Çalış" hidden>
+    <div class="view-head"><h2>Çalış</h2><p class="hint">Atlasın içeriğiyle kendinizi sınayın: evreler, yaş dönemleri, CDC basamakları, deneyler ve kavramlar. İlerlemeniz bu sayfada izlenir. Bu bölüm uyarlamada eklenmiştir (Usta, 2026).</p></div>
+    <div id="studyWrap"></div>
+  </section>
+
   <section id="view-ders" class="view" aria-label="Ders ve sunum" hidden>
     <div class="view-head"><h2>Ders ve sunum modu</h2><p class="hint">Bir ders türü ve konu seçin; atlas verilerinden 16:9 bir sunum üretilir. Konuşmacı notları ve tartışma soruları eklenebilir.</p></div>
     <div id="lessonWrap"></div>
@@ -104,7 +110,8 @@
 <footer class="foot">
   <div class="wrap">
     <p>0-5 yaş gelişim basamakları CDC'nin 2022'de revize edilen kontrol listelerinden çevrilmiştir (Zubler ve ark., 2022): basamaklar, çocukların en az %75'inin o yaşta ulaşması beklenen becerilerdir. Kuramların yaş aralıkları kuramcıların önerdiği yaklaşık değerlerdir; bireysel ve kültürel farklılıklar büyüktür. Beyin haritasındaki olgunlaşma endeksi şematiktir. Tanı ölçütleri için DSM-5-TR ve DC:0-5 el kitaplarının kendisine başvurulmalıdır. Bu kaynak eğitim amaçlıdır ve klinik değerlendirmenin yerini tutmaz.</p>
-    <p class="foot-credit">Özgün eser: Dr. Mehmet Tekden · Uyarlayan: Dr. Miraç Barış Usta · 2026. Tüm hakları saklıdır; kuramcı portreleri, Gray's Anatomy çizimleri ve CDC basamakları kendi lisanslarına tabidir (<a href="https://github.com/hypothermia15/gelisim/blob/main/LICENSE">lisans ve atıflar</a>).</p>
+    <p><span class="status sek">Ek 2026</span> etiketi uyarlamada eklenen içeriği gösterir (Usta, 2026): 2016-2026 çalışmaları, üç vaka, dört kuram profili, Türkiye notları ve “Çalış” bölümü. Etiketsiz içerik özgün atlasa aittir. Bilgiler Kasım 2026 itibarıyladır.</p>
+    <p class="foot-credit">Özgün eser: Dr. Mehmet Tekden · Uyarlayan: Dr. Miraç Barış Usta · 2026. Tüm hakları saklıdır; kuramcı portreleri, Gray's Anatomy çizimleri ve CDC basamakları kendi lisanslarına tabidir (<a href="https://github.com/hypothermia15/ruhsal-gelisim-atlasi/blob/main/LICENSE">lisans ve atıflar</a>).</p>
   </div>
 </footer>
 
@@ -159,6 +166,11 @@
 <script src="data/vakalar-1.js"></script>
 <script src="data/vakalar-2.js"></script>
 <script src="data/portreler.js"></script>
+<script src="data/ek-kaynaklar.js"></script>
+<script src="data/ek-deneyler.js"></script>
+<script src="data/ek-turkiye.js"></script>
+<script src="data/ek-vakalar.js"></script>
+<script src="data/ek-profil.js"></script>
 <script src="assets/util.js"></script>
 <script src="assets/view-brain.js"></script>
 <script src="assets/view-compare.js"></script>
@@ -166,6 +178,7 @@
 <script src="assets/view-cover.js"></script>
 <script src="assets/view-case.js"></script>
 <script src="assets/view-deck.js"></script>
+<script src="assets/view-study.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

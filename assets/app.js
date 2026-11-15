@@ -118,6 +118,7 @@
   function renderAgeDetail() {
     var i = A.ages.findIndex(function (a) { return a.id === state.age; });
     var b = A.ages[i];
+    if (A.seen) A.seen("age", b.id);
     var flags = b.flags && b.flags.length ? '<div class="flags"><div class="panel-title">Değerlendirme gerektiren durumlar</div><ul class="ticks">' + b.flags.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") + "</ul>" +
       (b.cdc && b.cdc.length && A.cdcMeta ? '<p class="act-early"><b>CDC "Erken davranın":</b> ' + esc(A.cdcMeta.actEarly) + "</p>" : "") + "</div>" : "";
     var bands = theoriesInBand(b);
@@ -136,6 +137,12 @@
     var dx = b.dx && b.dx.length ? '<section class="panel dxp"><div class="panel-title">Psikopatoloji penceresi <span class="tag">DSM-5-TR' + (b.to <= 6 ? " · DC:0-5" : "") + "</span></div><dl class=\"dxl\">" +
       b.dx.map(function (d) { return "<dt>" + esc(d[0]) + "</dt><dd>" + esc(d[1] || "") + "</dd>"; }).join("") + "</dl></section>" : "";
     var tools = b.tools && b.tools.length ? '<section class="panel toolp"><div class="panel-title">Tarama ve değerlendirme</div><ul class="ticks">' + b.tools.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul></section>" : "";
+    var tr = b.tr && b.tr.length ? '<section class="panel trp"><div class="panel-title">Türkiye notları: bu dönemde yerel veri ve araçlar ' + U.ekPill({ ek: true }) + '</div><dl class="trl">' + b.tr.map(function (n) {
+      var go = n[3] || {};
+      var links = (go.theory && thById[go.theory] ? '<button type="button" class="linkish" data-gotheory="' + go.theory + '">Kuramı aç →</button>' : "") +
+        (go.exp && expById[go.exp] ? '<button type="button" class="linkish" data-exp="' + go.exp + '">Çalışmayı aç →</button>' : "");
+      return "<div><dt>" + esc(n[0]) + "</dt><dd>" + esc(n[1]) + (links ? '<span class="tr-go">' + links + "</span>" : "") + U.refLinks(n[2]) + "</dd></div>";
+    }).join("") + "</dl></section>" : "";
     var brainMini = A.views.beyin && A.views.beyin.mini ? '<button type="button" class="mini-brain" id="openBrain" aria-label="Bu yaşı beyin haritasında aç">' + A.views.beyin.mini(U.bandAge(b)) + '<span>Beyin haritasında aç →</span></button>' : "";
     $("ageDetail").innerHTML =
       '<div class="age-head"><div><div class="range">' + esc(b.range.toLocaleUpperCase("tr")) + "</div><h2>" + esc(b.name) + "</h2></div>" +
@@ -143,7 +150,7 @@
       '<p class="gist">' + esc(b.gist) + "</p></div>" +
       '<div class="age-grid"><section class="panel"><div class="panel-title">Gelişim basamakları</div>' + milestonesHtml(b) + flags + "</section>" +
       '<aside class="age-side"><section class="panel neuro"><div class="panel-title">Beyinde neler oluyor</div>' + brainMini + '<ul class="clean">' + b.neuro.map(function (n) { return "<li>" + esc(n) + "</li>"; }).join("") + "</ul>" +
-      (b.clinic ? '<div class="clin">' + b.clinic + "</div>" : "") + "</section>" + dx + tools + "</aside></div>" +
+      (b.clinic ? '<div class="clin">' + b.clinic + "</div>" : "") + "</section>" + dx + tools + "</aside></div>" + tr +
       '<div class="section-h"><h3>Kuramlar bu dönemi nasıl okur?</h3><span>' + bands.length + " kuram · ◆ az bilinen · ayrıntı için karta dokunun</span></div>" +
       (lenses ? '<div class="lens-grid">' + lenses + "</div>" : '<p class="empty">Seçili kuram ailelerinde bu dönemi ele alan kuram yok. Üstteki filtreden aile ekleyin.</p>') +
       ageCases(b) +
@@ -182,6 +189,7 @@
       nav.brain(U.bandAge(b));
     } else if ((t = e.target.closest("[data-case]"))) nav["case"](t.dataset.case);
     else if ((t = e.target.closest(".lens"))) nav.theory(t.dataset.theory, +t.dataset.stage);
+    else if ((t = e.target.closest("[data-gotheory]"))) nav.theory(t.dataset.gotheory);
     else if ((t = e.target.closest("[data-exp]"))) nav.exp(t.dataset.exp);
   });
 
@@ -224,6 +232,7 @@
   A.relatedExps = relatedExps;
   function renderTheoryDetail() {
     var t = thById[state.theory];
+    if (A.seen) A.seen("theory", t.id);
     var f = famById[t.fam];
     var P = A.profiles && A.profiles[t.id];
     var labels = t.labels || ["Olumlu çözüm", "Risk"];
@@ -304,7 +313,7 @@
     var por = portraits(t);
     $("theoryDetail").innerHTML = select +
       '<header class="td-head' + (por ? " has-por" : "") + '" style="--c:' + f.color + '"><div class="td-main"><div class="tags"><span class="tag fam-tag" style="--c:' + f.color + '">' + U.famIcon(f.id) + esc(f.name) + "</span>" +
-      (t.rare ? '<span class="tag rare">Ders kitaplarında az yer alır</span>' : "") + '<span class="tag">' + esc(t.years) + "</span>" + (P ? '<span class="tag rare">Ayrıntılı profil</span>' : "") + "</div>" +
+      (t.rare ? '<span class="tag rare">Ders kitaplarında az yer alır</span>' : "") + '<span class="tag">' + esc(t.years) + "</span>" + (P ? '<span class="tag rare">Ayrıntılı profil</span>' : "") + (P && P.ek ? U.ekPill(P) : "") + "</div>" +
       "<h2>" + esc(t.name) + '</h2><p class="by">' + esc(t.who) + '</p><p class="core">' + esc(t.core) + "</p>" +
       '<div class="td-actions"><button type="button" class="btn" id="thSun">▶ Bu kuramı sun</button><button type="button" class="btn ghost" id="cmpAdd">Karşılaştırmaya ekle</button>' +
       presets.map(function (c) { return '<button type="button" class="btn ghost" data-preset="' + c.ids.join(",") + '">' + esc(c.ids.map(function (id) { return thById[id] ? thById[id].who.split(/ ve |;|,/)[0] : id; }).join(" ↔ ")) + "</button>"; }).join("") + "</div></div>" + por + "</header>" +
@@ -466,9 +475,11 @@
     var opts = [[0, "Tümü"], [1, A.status[1].label], [2, A.status[2].label], [3, A.status[3].label]];
     $("expStatus").innerHTML = opts.map(function (o) {
       return '<button type="button" data-st="' + o[0] + '" aria-pressed="' + (state.expStatus === o[0] && !state.expKind) + '">' + esc(o[1]) + "</button>";
-    }).join("") + '<button type="button" data-kind="mudahale" aria-pressed="' + (state.expKind === "mudahale") + '">Müdahale çalışmaları</button>';
+    }).join("") + '<button type="button" data-kind="mudahale" aria-pressed="' + (state.expKind === "mudahale") + '">Müdahale çalışmaları</button>' +
+      '<button type="button" data-kind="ek" aria-pressed="' + (state.expKind === "ek") + '">Ek 2026</button>';
     $("statusLegend").innerHTML = [1, 2, 3].map(function (s) { return "<span>" + U.statusPill(s) + esc(A.status[s].desc) + "</span>"; }).join("") +
-      '<span><span class="status sk">Müdahale</span>Kurama dayalı tedavi ya da önleme çalışması</span>';
+      '<span><span class="status sk">Müdahale</span>Kurama dayalı tedavi ya da önleme çalışması</span>' +
+      '<span>' + U.ekPill({ ek: true }) + "Uyarlamada eklenen 2016-2026 çalışmaları (Usta, 2026)</span>";
   }
   function chip(id, neg) {
     var t = thById[id];
@@ -480,7 +491,7 @@
     var q = state.expQ.toLocaleLowerCase("tr");
     var allFams = A.families.every(function (f) { return state.fams[f.id]; });
     var list = A.experiments.slice().sort(function (a, b) { return a.year - b.year; }).filter(function (e) {
-      if (state.expKind && e.kind !== state.expKind) return false;
+      if (state.expKind === "ek" ? !e.ek : (state.expKind && e.kind !== state.expKind)) return false;
       if (!state.expKind && state.expStatus && e.st !== state.expStatus) return false;
       if (!allFams) {
         var linked = e.sup.concat(e.ch).some(function (id) { return thById[id] && state.fams[thById[id].fam]; });
@@ -507,7 +518,7 @@
   $("expStatus").addEventListener("click", function (e) {
     var b = e.target.closest("button");
     if (!b) return;
-    if (b.dataset.kind) { state.expKind = state.expKind ? "" : b.dataset.kind; state.expStatus = 0; }
+    if (b.dataset.kind) { state.expKind = state.expKind === b.dataset.kind ? "" : b.dataset.kind; state.expStatus = 0; }
     else { state.expStatus = +b.dataset.st; state.expKind = ""; }
     renderExpControls(); renderExps();
   });
@@ -555,7 +566,7 @@
   };
 
   /* ---------- yönlendirme ---------- */
-  var VIEWS = ["kapak", "yas", "kuram", "karsilastir", "vaka", "beyin", "cizelge", "deneyler", "ders", "kaynakca"];
+  var VIEWS = ["kapak", "yas", "kuram", "karsilastir", "vaka", "beyin", "cizelge", "deneyler", "calis", "ders", "kaynakca"];
   function renderCurrent() {
     var v = state.view;
     if (v === "yas") { renderAgeStrip(); renderAgeDetail(); }
